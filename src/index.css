@@ -13,7 +13,10 @@ code {
     monospace;
 }
 
-a {
-  color: white;
-  margin: 10px;
-}
+/** {*/
+  /*transition: all 0.15s cubic-bezier(0, 0.1, 0.5, 1);*/
+/*}*/
+
+/**:hover {*/
+  /*border: 1px lime solid;*/
+/*}*/

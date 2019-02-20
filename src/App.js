@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import styled from 'styled-components';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import Home from './containters/Home';
 import NotFound from './containters/NotFound';
 import FeaturePage from './containters/FeaturePage';
@@ -10,12 +10,13 @@ import { Redirect } from 'react-router';
 const AppWrapper = styled.div`
   max-width: calc(768px + 16px * 2);
   margin: 0 auto;
+  height: 80vh;
   display: flex;
   min-height: 100%;
   padding: 0 16px;
   flex-direction: column;
-  background: black;
-  color: white;
+  background: #cfcfcf;
+  vertical-align: center;
 `;
 
 class App extends Component {
