@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
 import styled from 'styled-components';
-import {Route, Switch} from 'react-router-dom';
-import Home from './containters/Home';
-import NotFound from './containters/NotFound';
-import FeaturePage from './containters/FeaturePage';
+import { Route, Switch } from 'react-router-dom';
+import Home from './containers/main/Home';
+import NotFound from './containers/NotFound';
 import { Redirect } from 'react-router';
+import CSSPlayground from './containers/CSSPlayground/CSSPlayground';
 
 const AppWrapper = styled.div`
   max-width: calc(768px + 16px * 2);
@@ -17,6 +17,7 @@ const AppWrapper = styled.div`
   flex-direction: column;
   background: #cfcfcf;
   vertical-align: center;
+  border: 1px solid black;
 `;
 
 class App extends Component {
@@ -26,7 +27,7 @@ class App extends Component {
         <Switch>
           <Redirect exact from='/' to='/home'/>
           <Route exact path='/home' component={Home}/>
-          <Route path='/feature' component={FeaturePage}/>
+          <Route exact path='/css' component={CSSPlayground}/>
           <Route component={NotFound}/>
         </Switch>
       </AppWrapper>

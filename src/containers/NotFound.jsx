@@ -14,7 +14,6 @@ class NotFound extends Component {
         <p>404</p>
         <div>
           <Link to='/'>Go Home</Link>
-          <Link to='/feature'>Feature</Link>
         </div>
       </NotFoundWrapper>
     );

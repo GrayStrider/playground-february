@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class Home extends Component {
+class CssPlayground extends Component {
   render() {
     return (
       <div>
-        <p>home</p>
-        <p>Link - <Link to='/404'>440</Link> - Link</p>
+        <h1>CSS</h1>
+        <Link to={'/home'}>Go Home</Link>
       </div>
     );
   }
 }
 
-export default Home;
+export default CssPlayground;
