@@ -63,7 +63,14 @@
     "test": "node scripts/test.js"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "rules": {
+      "jsx-a11y/anchor-is-valid": [ false, {
+        "components": [ "Link" ],
+        "specialLink": [ "to" ]
+      }],
+      "jsx-a11y/anchor-has-content": "off"
+  }
   },
   "browserslist": [
     ">0.2%",
@@ -116,12 +123,11 @@
       "C:\\Coding_Projects\\create-react-app-playground-february\\node_modules\\jest-watch-typeahead\\testname.js"
     ]
   },
-  "babel": {
-    "presets": [
-      "react-app"
-    ]
-  },
   "devDependencies": {
-    "@types/styled-components": "^4.1.10"
+    "@types/styled-components": "^4.1.10",
+    "babel-plugin-react-css-modules": "^5.1.1",
+    "lorem-ipsum": "^1.0.6",
+    "node-sass": "^4.11.0",
+    "postcss-scss": "^2.0.0"
   }
 }
