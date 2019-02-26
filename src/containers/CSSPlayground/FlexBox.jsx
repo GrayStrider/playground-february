@@ -8,20 +8,22 @@ const loremStatic = 'Ad sint veniam fugiat dolor est consectetur est quis velit 
 class FlexBox extends Component {
   render() {
     return (
-      <Wrapper>
-        {/*{Repeat(5,*/}
-          {/*<Box>*/}
-            {/*{loremIpsum({ count: 3 })}*/}
-          {/*</Box>*/}
-        {/*)}*/}
 
-        {
-          Array.from({ length: 5 }, (_, k) => (
-            <Box>
-              [{k+1}] {loremIpsum({ count: 3 })}
-            </Box>
-          ))
-        }
+      <Wrapper>
+        <Navigation>
+          <NavLink>Home</NavLink>
+          <NavLink>About</NavLink>
+          <NavLink>My Work</NavLink>
+        </Navigation>
+        <ContentWrapper>
+          {
+            Array.from({ length: 10 }, (_, k) => (
+              <Box>
+                [{k + 1}] {loremIpsum({ count: 3 })}
+              </Box>
+            ))
+          }
+        </ContentWrapper>
       </Wrapper>
     );
   }
@@ -31,20 +33,52 @@ const Wrapper = styled.div`
   * {
     border: ${develop.black_thin};
   }
-  
-  // css variables do work here!
-  // theming is problematic though - no IDE support
-  --main: white;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
 `;
 
+const ContentWrapper = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  //height: 100vh; // this way column wrap works.
+  justify-content: space-around;
+  align-items: normal;
+  align-content: center;
+`;
+
+const Navigation = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  /* This aligns items to the end line on main-axis */
+  justify-content: flex-end;
+  
+  @media all and (max-width: 800px) {
+  & {
+    /* When on medium sized screens, we center it by evenly distributing empty space around items */
+    justify-content: space-around;
+  }
+  
+  @media all and (max-width: 500px) {
+  & {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+    align-content: center;
+  }
+`;
+
+const NavLink = styled.div`
+  padding: 3px;
+  border: none;
+`
+
 const Box = styled.div`
-  max-width: 250px;
-  padding: 5px;
-  margin: 10px;
-  background: var(--main);
+  width: calc(98vw / 4);
+  //flex-basis: calc(100vw / 4);
+  //margin: 5px;
+  padding: 6px;
+  
+  box-shadow: 4px 7px 45px -10px rgba(0,0,0,0.4);
+  border-radius: 3px;
+  
+  
 `;
 
 export default FlexBox;
