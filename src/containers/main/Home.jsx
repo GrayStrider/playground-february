@@ -13,11 +13,9 @@ class Home extends Component {
         <p>home</p>
         <Link to={'/css'}>CSS Playground</Link>
         <Link to={'/css2'}>CSS Playground2</Link>
-        <Link to={'home/css'}>Embedded render</Link>
-        <Link to={'/bootstrap'}>Bootstrap</Link>
-        <div>
-          <Route path='/home/css' component={CssPlayground}/>
-        </div>
+        <Link to={'/counter'}>Counter</Link>
+        <Link to={'/flex'}>Flex</Link>
+
       </HomeWrapper>
     );
   }
