@@ -18,7 +18,7 @@ class FlexBox extends Component {
         <ContentWrapper>
           {
             Array.from({ length: 10 }, (_, k) => (
-              <Box>
+              <Box key={k+1}>
                 [{k + 1}] {loremIpsum({ count: 3 })}
               </Box>
             ))
