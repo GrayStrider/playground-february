@@ -7,6 +7,8 @@ const Counter = (props) => (
     Counter: {props.count}
     <button onClick={props.increment}>+</button>
     <button onClick={props.decrement}>-</button>
+    <br/>
+    {props.count === 0 || props.count === 10 ? '0-10!' : ''}
   </div>
 )
 
