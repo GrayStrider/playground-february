@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import AppHeader from '../../components/AppHeader';
-import CssPlayground from '../CSSPlayground/CSSPlayground';
-import { Route } from 'react-router';
 import styled from 'styled-components';
 
 class Home extends Component {

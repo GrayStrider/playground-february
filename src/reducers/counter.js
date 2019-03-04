@@ -1,6 +1,6 @@
 import {
   INCREMENT,
-  DECREMENT
+  DECREMENT, SETCOUNTER,
 } from '../constants/ActionTypes';
 
 export default (state = 0, action) => {
@@ -15,6 +15,11 @@ export default (state = 0, action) => {
         return state
       }
       return state - 1
+    case SETCOUNTER:
+      if (action.value >= 0 && action.value <=10) {
+        return action.value
+      }
+      return state
     default:
       return state
   }
