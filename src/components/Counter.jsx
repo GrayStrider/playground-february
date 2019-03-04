@@ -1,23 +1,24 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { increment, decrement, setCounter } from '../actions/counter';
-import Button from 'react-bootstrap/Button';
+import BButton from 'react-bootstrap/Button';
 import styled from 'styled-components';
-import Container from 'react-bootstrap/Container';
-import Alert from 'react-bootstrap/Alert';
+import BContainer from 'react-bootstrap/Container';
+import BAlert from 'react-bootstrap/Alert';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 
-function Counter ({
-                    count,
-                    increment,
-                    decrement,
-                    setCounter,
-                  }) {
+function Counter (props) {
+
   const setTo = (value) => setCounter.bind(null, value);
+  const increment = props.increment;
+  const decrement = props.decrement;
+  const count = props.count;
+  const setCounter = props.setCounter;
+
   return (
-    <SContainer>
+    <Container>
       <Row>
         <Col>
           <ProgressBar now={count} max={10} variant={count===10 ? 'success' : ''}/>
@@ -25,15 +26,15 @@ function Counter ({
         </Col>
       </Row>
       <Row>
-        <StyledButton onClick={increment}>+</StyledButton>
-        <StyledButton onClick={decrement}>-</StyledButton>
-        <StyledButton onClick={setTo(10)}>Set to 10</StyledButton>
-        <StyledButton onClick={setTo(0)}>Reset</StyledButton>
+        <Button onClick={increment}>+</Button>
+        <Button onClick={decrement}>-</Button>
+        <Button onClick={setTo(10)}>Set to 10</Button>
+        <Button onClick={setTo(0)}>Reset</Button>
       </Row>
       <Row>
-        {count === 0 || count === 10 ? <StyledAlert variant="primary">0-10!</StyledAlert> : ''}
+        {count === 0 || count === 10 ? <Alert variant="primary">0-10!</Alert> : ''}
       </Row>
-    </SContainer>
+    </Container>
   );
 }
 
@@ -50,14 +51,14 @@ const mapDispatchToProps = dispatch => ({
 export default connect(mapStateToProps, mapDispatchToProps)(Counter)
 
 
-const StyledButton = styled(Button)`
+const Button = styled(BButton)`
   margin: 2px;
   height: fit-content;
 `
 
-const StyledAlert = styled(Alert)`
+const Alert = styled(BAlert)`
   width: fit-content;
 `
-const SContainer = styled(Container)`
+const Container = styled(BContainer)`
 
 `

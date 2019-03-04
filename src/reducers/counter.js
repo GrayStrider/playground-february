@@ -4,6 +4,7 @@ import {
 } from '../constants/ActionTypes';
 
 export default (state = 0, action) => {
+  const value = action.value;
   switch (action.type) {
     case INCREMENT:
       if (state === 10){
@@ -16,8 +17,12 @@ export default (state = 0, action) => {
       }
       return state - 1
     case SETCOUNTER:
-      if (action.value >= 0 && action.value <=10) {
-        return action.value
+      if (
+        typeof value === 'number'
+        && (value === Math.trunc(value))
+        && value >= 0
+        && value <=10) {
+        return value
       }
       return state
     default:
