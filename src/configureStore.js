@@ -7,7 +7,7 @@ export const history = createBrowserHistory()
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 export default function configureStore(preloadedState) {
-  return createStore(
+  const store = createStore(
     createRootReducer(history), // root reducer with router state
     preloadedState,
     composeEnhancers(
@@ -17,4 +17,13 @@ export default function configureStore(preloadedState) {
       ),
     ),
   )
+  if (module.hot) {
+    // Enable Webpack hot module replacement for reducers
+    module.hot.accept("./reducers", () => {
+      const nextReducer = require("./reducers/index").default;
+
+      store.replaceReducer(nextReducer);
+    });
+  }
+  return store;
 }
