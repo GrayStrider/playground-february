@@ -22,7 +22,7 @@ function Counter(props) {
     1: 'one',
     2: 'two',
     3: 'three',
-    4: 'four'
+    4: 'four',
   };
 
   const fakeArray = ['false', 'Ivan', 'sand', 10, 5345];
@@ -58,7 +58,12 @@ function Counter(props) {
       ))}
       <hr/>
       <p>Array 1..N</p>
-      {Array.from({length: 5}, (v, k) => k+1)}
+      {Array.from({ length: count }, (v, k) => k + 1)
+        .map((value, i) => (
+          <div key={i} id='fakeEntry'>index: {i}, value: &lt; {value} &gt;</div>
+        ))}
+      <hr/>
+
     </Container>
   );
 }
@@ -88,6 +93,9 @@ const Alert = styled(BAlert)`
   top: 30px;
 `;
 const Container = styled(BContainer)`
+  //padding-left: calc(100vw - 100%); margin seems to do the trick
+  margin-left: 2em;
+  padding: 0;
   & div#fakeEntry {
     :nth-child(even){
     background-color: antiquewhite;

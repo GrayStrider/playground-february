@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import AppHeader from '../../components/AppHeader';
+import AppHeader from '../components/AppHeader';
 import styled from 'styled-components';
 
 class Home extends Component {
@@ -13,6 +13,7 @@ class Home extends Component {
         <Link to={'/css2'}>CSS Playground2</Link>
         <Link to={'/counter'}>Counter</Link>
         <Link to={'/flex'}>Flex</Link>
+        <Link to={'/reacttransitiongroup'}>Transision</Link>
 
       </HomeWrapper>
     );
