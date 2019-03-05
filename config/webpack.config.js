@@ -114,6 +114,7 @@ module.exports = function(webpackEnv) {
   };
 
   return {
+
     mode: isEnvProduction ? 'production' : isEnvDevelopment && 'development',
     // Stop compilation early in production
     bail: isEnvProduction,
@@ -265,6 +266,7 @@ module.exports = function(webpackEnv) {
         // Support React Native Web
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
         'react-native': 'react-native-web',
+        'react-dom': '@hot-loader/react-dom'
       },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding

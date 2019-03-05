@@ -25,7 +25,7 @@ function Counter(props) {
     4: 'four'
   };
 
-  const fakeArray = ['false', 'Ivan', 'sand', 10, 5345, 'test'];
+  const fakeArray = ['false', 'Ivan', 'sand', 10, 5345];
 
   return (
     <Container>
