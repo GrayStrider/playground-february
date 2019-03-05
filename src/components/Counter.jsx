@@ -54,7 +54,7 @@ function Counter(props) {
       <hr/>
       <p>Iterate over array, escaping &lt; and &gt;:</p>
       {fakeArray.map((value, i) => (
-        <div key={i}>index: {i}, value: &lt; {value} &gt;</div>
+        <div key={i} id='fakeEntry'>index: {i}, value: &lt; {value} &gt;</div>
       ))}
       <hr/>
       <p>Array 1..N</p>
@@ -88,5 +88,14 @@ const Alert = styled(BAlert)`
   top: 30px;
 `;
 const Container = styled(BContainer)`
+  & div#fakeEntry {
+    :nth-child(even){
+    background-color: antiquewhite;
+}
+  }
+
+  & > p {
+  background-color: antiquewhite;
+}
 
 `;
