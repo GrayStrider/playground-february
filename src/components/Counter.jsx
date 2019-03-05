@@ -25,7 +25,7 @@ function Counter(props) {
     4: 'four'
   };
 
-  const fakeArray = ['false', 'Ivan', 'sand', 10];
+  const fakeArray = ['false', 'Ivan', 'sand', 10, 5345, 'test'];
 
   return (
     <Container>
@@ -56,6 +56,9 @@ function Counter(props) {
       {fakeArray.map((value, i) => (
         <div key={i}>index: {i}, value: &lt; {value} &gt;</div>
       ))}
+      <hr/>
+      <p>Array 1..N</p>
+      {Array.from({length: 5}, (v, k) => k+1)}
     </Container>
   );
 }

@@ -8,6 +8,7 @@ import CSSPlayground2 from './containers/CSSPlayground/CSSPlayground2';
 import BoxModel from './containers/CSSPlayground/BoxModel';
 import FlexBox from './containers/CSSPlayground/FlexBox';
 import Counter from './components/Counter';
+import { hot } from 'react-hot-loader/root';
 
 class App extends Component {
   render() {
@@ -29,4 +30,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default hot(App)

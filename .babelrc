@@ -3,13 +3,6 @@
     "react-app"
   ],
   "plugins": [
-    ["react-css-modules", {
-      "webpackHotModuleReloading": true,
-      "filetypes": {
-        ".scss": {
-          "syntax": "postcss-scss"
-        }
-      }
-    }]
+    ["react-hot-loader/babel"]
   ]
 }
