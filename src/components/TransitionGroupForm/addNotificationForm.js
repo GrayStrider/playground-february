@@ -4,6 +4,7 @@ import { addNotification, removeNotification } from '../../actions/TransitionGro
 
 class AddNotificationForm extends React.Component {
   render() {
+    const notifications = this.props.notifications;
     let input;
 
     const handleSubmit = (e) => {
@@ -14,13 +15,12 @@ class AddNotificationForm extends React.Component {
         return
       }
 
-      let duplicateId = this.props.notifications.indexOf(this.props.notifications.find( element => element.text === input.value));
+      let duplicateId = notifications.indexOf(notifications.find( element => element.text === input.value));
 
       if (duplicateId !== -1) {
         if (window.confirm('Duplicate. Would you like to delete existing instance and cancel input?')) {
           this.props.removeNotification(duplicateId);
           input.value = "";
-          return
         }
         return
       }
