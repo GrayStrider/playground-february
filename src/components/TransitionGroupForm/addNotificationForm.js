@@ -39,7 +39,8 @@ class AddNotificationForm extends React.Component {
           <button type='submit'>Add Notification</button>
         </form>
         <ContactForm/>
-        {JSON.stringify(this.props.formValues["contact"])}
+        <div>{this.props.formValues['contact']['values'] ?
+          JSON.stringify(this.props.formValues['contact']['values']) : ''}</div>
       </>
     );
   }

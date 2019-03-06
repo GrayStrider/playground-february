@@ -12,8 +12,8 @@ let ContactForm = props => {
     <form onSubmit={handleSubmit}>
       <>
         <label htmlFor="firstName">First Name</label>
-        <Field name="firstName" component="input" type="text" className={nameValid ? '' : 'warning'}/>
-        {nameValid}
+        <Field name="firstName" component="input" type="text"
+               className={nameValid ? '' : 'warning'}/>
       </>
       <button type="submit" disabled={!nameValid}>Submit</button>
     </form>
@@ -21,7 +21,6 @@ let ContactForm = props => {
 }
 
 ContactForm = reduxForm({
-  // a unique name for the form
   form: 'contact'
 })(ContactForm)
 
@@ -30,7 +29,7 @@ const selector = formValueSelector('contact');
 
 ContactForm = connect(state => {
   let firstName = selector(state, 'firstName');
-  const nameValid = firstName.length >= 10;
+  const nameValid = firstName ? firstName.length >= 10 : false;
   return { nameValid };
 })(ContactForm);
 
