@@ -1,6 +1,5 @@
 import React from "react";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-import { bindActionCreators } from 'redux';
 import { removeNotification } from '../../actions/TransitionGroupForm';
 import { connect } from 'react-redux';
 
@@ -41,8 +40,8 @@ const mapStateToProps = state => ({
   notifications: state.notifications
 });
 
-const mapDisaptchToProps = dispatch => {
-  return bindActionCreators({ removeNotification }, dispatch);
-};
+const mapDispatchToProps = dispatch => ({
+  removeNotification: (i) => dispatch(removeNotification(i))
+});
 
-export default connect(mapStateToProps, mapDisaptchToProps)(Notifications);
+export default connect(mapStateToProps, mapDispatchToProps)(Notifications);

@@ -1,6 +1,12 @@
 const notifications = (state = [], action) => {
   switch (action.type) {
     case "ADD":
+      let isDuplicate = state.find( element => element.text === action.text)
+
+      if (isDuplicate) {
+        return state
+      }
+
       return [
         ...state,
         {
