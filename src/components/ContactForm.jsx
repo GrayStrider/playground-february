@@ -1,23 +1,21 @@
 import React from 'react'
-import { Field, reduxForm } from 'redux-form'
+import { Field as RField, formValueSelector, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
+import styled from 'styled-components';
 
 let ContactForm = props => {
-  const { handleSubmit } = props
+  const {
+    handleSubmit,
+    nameValid
+  } = props
   return (
     <form onSubmit={handleSubmit}>
-      <div>
+      <>
         <label htmlFor="firstName">First Name</label>
-        <Field name="firstName" component="input" type="text" />
-      </div>
-      <div>
-        <label htmlFor="lastName">Last Name</label>
-        <Field name="lastName" component="input" type="text" />
-      </div>
-      <div>
-        <label htmlFor="email">Email</label>
-        <Field name="email" component="input" type="email" />
-      </div>
-      <button type="submit">Submit</button>
+        <Field name="firstName" component="input" type="text" className={nameValid ? '' : 'warning'}/>
+        {nameValid}
+      </>
+      <button type="submit" disabled={!nameValid}>Submit</button>
     </form>
   )
 }
@@ -26,5 +24,21 @@ ContactForm = reduxForm({
   // a unique name for the form
   form: 'contact'
 })(ContactForm)
+
+
+const selector = formValueSelector('contact');
+
+ContactForm = connect(state => {
+  let firstName = selector(state, 'firstName');
+  const nameValid = firstName.length >= 10;
+  return { nameValid };
+})(ContactForm);
+
+const Field = styled(RField)`
+  &.warning {
+     outline: thin red solid;
+     outline-offset: 0;
+  }
+`
 
 export default ContactForm
