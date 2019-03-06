@@ -5,17 +5,20 @@ import styled from 'styled-components';
 
 let ContactForm = props => {
   const {
-    handleSubmit,
-    nameValid
+    nameValid,
+    firstName
   } = props
   return (
-    <form onSubmit={handleSubmit}>
+    <form>
       <>
         <label htmlFor="firstName">First Name</label>
         <Field name="firstName" component="input" type="text"
-               className={nameValid ? '' : 'warning'}/>
+               className={nameValid ? '' : 'warning'}
+               maxLength={15}
+        />
       </>
       <button type="submit" disabled={!nameValid}>Submit</button>
+      {/*{firstName && firstName.length === 15 ? window.alert('Limit reached.') : ''}*/}
     </form>
   )
 }
@@ -30,7 +33,7 @@ const selector = formValueSelector('contact');
 ContactForm = connect(state => {
   let firstName = selector(state, 'firstName');
   const nameValid = firstName ? firstName.length >= 10 : false;
-  return { nameValid };
+  return { nameValid, firstName }; // Local!
 })(ContactForm);
 
 const Field = styled(RField)`
