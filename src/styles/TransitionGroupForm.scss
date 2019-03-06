@@ -26,7 +26,7 @@ body {
 	margin: 1em;
 }
 
-.container {
+[class="container"] { //prevent clash with Bootstrap Container.. But I should figure out how to scope them damnit
 	position: fixed;
 	bottom: 0;
 }

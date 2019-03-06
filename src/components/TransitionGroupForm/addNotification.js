@@ -1,9 +1,12 @@
 import React from "react";
+import { bindActionCreators } from 'redux';
+import { addNotification } from '../../actions/TransitionGroupForm';
+import { connect } from 'react-redux';
 
 const AddNotification = ({ addNotification }) => {
   let input;
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!input.value.trim()) {
@@ -24,4 +27,8 @@ const AddNotification = ({ addNotification }) => {
   );
 };
 
-export default AddNotification;
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({ addNotification }, dispatch);
+};
+
+export default connect(null, mapDispatchToProps)(AddNotification);
