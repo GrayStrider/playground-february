@@ -14,6 +14,7 @@ class Home extends Component {
         <Link to={'/counter'}>Counter</Link>
         <Link to={'/flex'}>Flex</Link>
         <Link to={'/reacttransitiongroup'}>Transision</Link>
+        <Link to={'/apollo'}>Apollo</Link>
 
       </HomeWrapper>
     );

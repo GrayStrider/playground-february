@@ -6,15 +6,27 @@ import * as serviceWorker from './serviceWorker';
 import configureStore, {history} from './configureStore';
 import { Provider } from 'react-redux';
 import {ConnectedRouter} from 'connected-react-router';
+import ApolloClient from "apollo-boost";
+import { ApolloProvider } from 'react-apollo';
 
 const store = configureStore();
 
+//================================================================================
+// Apollo - GraphQL
+const client = new ApolloClient({
+  uri: "https://48p1r2roz4.sse.codesandbox.io"
+});
+//================================================================================
+
+
 ReactDOM.render(
-  <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <App/>
-    </ConnectedRouter>
-  </Provider>
+  <ApolloProvider client={client}>
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        <App/>
+      </ConnectedRouter>
+    </Provider>
+  </ApolloProvider>
   ,
   document.getElementById('root'));
 

@@ -10,6 +10,7 @@ import FlexBox from './pages/FlexBox';
 import Counter from './components/Counter';
 import { hot } from 'react-hot-loader/root';
 import ReactTransitionGroupForm from './pages/TransitionGroupForm';
+import ExchangeRatesApollo from './pages/ExchangeRatesApollo';
 
 class App extends Component {
   render() {
@@ -24,6 +25,7 @@ class App extends Component {
           <Route exact path='/flex' component={FlexBox}/>
           <Route exact path='/counter' component={Counter}/>
           <Route exact path='/reacttransitiongroup' component={ReactTransitionGroupForm}/>
+          <Route exact path='/apollo' component={ExchangeRatesApollo}/>
           <Route component={NotFound}/>
 
         </Switch>
