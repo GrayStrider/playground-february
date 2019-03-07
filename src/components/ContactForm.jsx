@@ -6,7 +6,6 @@ import styled from 'styled-components';
 let ContactForm = props => {
   const {
     nameValid,
-    firstName
   } = props
   return (
     <form>
@@ -23,24 +22,25 @@ let ContactForm = props => {
   )
 }
 
-ContactForm = reduxForm({
-  form: 'contact'
-})(ContactForm)
-
-
-const selector = formValueSelector('contact');
-
-ContactForm = connect(state => {
-  let firstName = selector(state, 'firstName');
-  const nameValid = firstName ? firstName.length >= 10 : false;
-  return { nameValid, firstName }; // Local!
-})(ContactForm);
-
+//================================================================================
+// Styled
 const Field = styled(RField)`
   &.warning {
      outline: thin red solid;
      outline-offset: 0;
   }
 `
+
+//================================================================================
+// redux-form
+ContactForm = reduxForm({
+  form: 'contact'
+})(ContactForm)
+const selector = formValueSelector('contact');
+ContactForm = connect(state => {
+  let firstName = selector(state, 'firstName');
+  const nameValid = firstName ? firstName.length >= 10 : false;
+  return { nameValid, firstName }; // Local!
+})(ContactForm);
 
 export default ContactForm
