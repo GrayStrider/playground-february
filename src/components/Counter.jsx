@@ -31,7 +31,8 @@ function Counter(props) {
     <Container>
       <Row>
         <Col>
-          <ProgressBar now={count} max={10} variant={count === 10 ? 'success' : ''}/>
+          <ProgressBar now={count} max={10}
+                       variant={count === 10 ? 'success' : ''}/>
           <div>Counter: {count}</div>
         </Col>
       </Row>
@@ -42,7 +43,10 @@ function Counter(props) {
         <Button onClick={setTo(0)}>Reset</Button>
       </Row>
       <Row>
-        {count === 0 || count === 10 ? <Alert variant='primary'>0-10!</Alert> : ''}
+        {
+          count === 0 || count === 10 ?
+          <Alert variant='primary'>0-10!</Alert>
+          : ''}
       </Row>
       <ContactForm/>
       <hr/>
