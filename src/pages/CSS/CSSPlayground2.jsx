@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import '../styles/CSSPlayground2.scss';
+import '../../styles/CSSPlayground2.scss';
 
 const loremIpsum = require('lorem-ipsum');
 

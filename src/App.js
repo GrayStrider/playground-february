@@ -3,14 +3,16 @@ import { Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import { Redirect } from 'react-router';
-import CSSPlayground from './pages/CSSPlayground';
-import CSSPlayground2 from './pages/CSSPlayground2';
-import BoxModel from './pages/BoxModel';
-import FlexBox from './pages/FlexBox';
+import CSSPlayground from './pages/CSS/CSSPlayground';
+import CSSPlayground2 from './pages/CSS/CSSPlayground2';
+import BoxModel from './pages/CSS/BoxModel';
+import FlexBox from './pages/CSS/FlexBox';
 import Counter from './components/Counter';
 import { hot } from 'react-hot-loader/root';
 import ReactTransitionGroupForm from './pages/TransitionGroupForm';
 import ExchangeRatesApollo from './pages/ExchangeRatesApollo';
+import Todo from './apps/Todo/Todo';
+import Todo2 from './apps/Todo2/Todo2';
 
 class App extends Component {
   render() {
@@ -24,6 +26,8 @@ class App extends Component {
           <Route exact path='/css3' component={BoxModel}/>
           <Route exact path='/flex' component={FlexBox}/>
           <Route exact path='/counter' component={Counter}/>
+          <Route exact path='/todo' component={Todo}/>
+          <Route exact path='/todo2' component={Todo2}/>
           <Route exact path='/reacttransitiongroup' component={ReactTransitionGroupForm}/>
           <Route exact path='/apollo' component={ExchangeRatesApollo}/>
           <Route component={NotFound}/>

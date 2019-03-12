@@ -9,6 +9,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import ContactForm from './ContactForm';
+import { Form } from 'redux-form';
+import { Link } from 'react-router-dom';
 
 function Counter(props) {
 
@@ -27,6 +29,21 @@ function Counter(props) {
 
   const fakeArray = ['false', 'Ivan', 'sand', 10, 5345];
 
+  const ifOdd = () => {
+    if (count % 2 === 0) {
+      return;
+    }
+    increment();
+  };
+
+  const incrementAsync = () => setTimeout(increment, 1000);
+
+  const incrementNtimesAsync = (amount) => {
+    for (let i = 0; i < amount; i++) {
+      incrementAsync();
+    }
+  };
+
   return (
     <Container>
       <Row>
@@ -41,12 +58,30 @@ function Counter(props) {
         <Button onClick={decrement}>-</Button>
         <Button onClick={setTo(10)}>Set to 10</Button>
         <Button onClick={setTo(0)}>Reset</Button>
+        <Button onClick={() => count % 2 === 0 ? null : increment()}>Increment if odd</Button>
+      </Row>
+      <Row>
+        {/*<Button onClick={increment}>Increment if {count % 2 === 0 ? 'even' : 'odd'}</Button>*/}
+        <Button onClick={incrementAsync}>Async</Button>
+        <>
+          <input type='range' min={1} max={10} id='myRange'
+                 onChange={(event) => setCounter(Number(event.currentTarget.value))}/>
+        </>
+      </Row>
+      <Row>
+        <form onSubmit={(event) => {
+          event.preventDefault();
+          incrementNtimesAsync(Number(document.getElementById('asyncForm').value))
+        }}>
+          <input type='text' min={0} max={10 - count} id='asyncForm'/>
+          <input type='submit'/>
+        </form>
       </Row>
       <Row>
         {
           count === 0 || count === 10 ?
-          <Alert variant='primary'>0-10!</Alert>
-          : ''}
+            <Alert variant='primary'>0-10!</Alert>
+            : ''}
       </Row>
       <ContactForm/>
       <hr/>
@@ -67,6 +102,7 @@ function Counter(props) {
           <div key={i} id='fakeEntry'>index: {i}, value: &lt; {value} &gt;</div>
         ))}
       <hr/>
+      <Link to={'/home'}>Go Home</Link>
 
     </Container>
   );
@@ -94,7 +130,7 @@ const Alert = styled(BAlert)`
   width: fit-content;
   position: absolute;
   right: 20px;
-  top: 30px;
+  bottom: 30px;
 `;
 const Container = styled(BContainer)`
   //padding-left: calc(100vw - 100%); margin seems to do the trick

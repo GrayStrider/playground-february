@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/TransitionGroupForm.scss";
+// import "../styles/TransitionGroupForm.scss";
 import AddNotification from '../components/TransitionGroupForm/addNotificationForm';
 import Notifications from '../components/TransitionGroupForm/notifications';
 import { Link } from 'react-router-dom';

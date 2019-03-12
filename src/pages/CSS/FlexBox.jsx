@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import develop from '../themes/develop';
+import develop from '../../themes/develop';
 
 const loremIpsum = require('lorem-ipsum');
 const loremStatic = 'Ad sint veniam fugiat dolor est consectetur est quis velit incididunt ad. Nostrud sint sit laboris elit nulla exercitation cillum. Fugiat magna aliqua pariatur consectetur nostrud nostrud culpa enim culpa mollit duis amet. Excepteur minim nisi aute duis pariatur. Ea Lorem laborum do occaecat excepteur deserunt do anim sint culpa. Id elit anim et labore ex Lorem sint cillum aute id. Esse culpa tempor quis do ea. Reprehenderit laboris id qui elit cillum ea voluptate nostrud dolor culpa. Nisi nisi incididunt amet pariatur proident tempor ad occaecat sit dolor elit et qui. Exercitation in aute officia dolor dolore officia ut anim in qui deserunt.';
