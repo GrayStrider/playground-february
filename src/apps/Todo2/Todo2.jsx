@@ -10,15 +10,18 @@ class Todo2 extends Component {
       <Wrapper>
 
         <ColumnLeft>
-          <Block2>{loremIpsum({count: 5})}</Block2>
+          <Block>{loremIpsum({count: 5})}</Block>
+          <Block>{loremIpsum({count: 10})}</Block>
         </ColumnLeft>
 
         <ColumnCenter>
           <InputBox/>
+          <Block>{loremIpsum({count: 5})}</Block>
         </ColumnCenter>
 
         <ColumnRight>
-          <Block1>{loremIpsum({count: 5})}</Block1>
+          <Block>{loremIpsum({count: 5})}</Block>
+          <Block>{loremIpsum({count: 15})}</Block>
         </ColumnRight>
 
       </Wrapper>
@@ -26,24 +29,13 @@ class Todo2 extends Component {
   }
 }
 
-const Wrapper = styled.div`
-  display: flex;
-  align-items: flex-start;
 
-  background: #ddd;
-  height: 100vh;
-  padding: 0.5em;
-`
-
-const Block1 = styled(DefaultWrapper)`
-
-`
-
-const Block2 = styled(DefaultWrapper)`
+const Block = styled(DefaultWrapper)`
 
 `
 
 const ColumnLeft = styled.div`
+  min-width: 30%;
 
 `
 
@@ -53,6 +45,26 @@ const ColumnCenter = styled.div`
 
 const ColumnRight = styled.div`
 
+`
+const Wrapper = styled.div`
+  display: flex;
+  align-items: flex-start;
+
+  background: #ddd;
+  height: 100vh;
+  padding: 0.5em;
+  
+  @media(max-width: 1000px) {
+    & ${ColumnLeft} {
+      display: none;
+    }
+  }
+  
+  @media(max-width: 730px) {
+    & ${ColumnRight} {
+      display: none;
+    }
+  }
 `
 
 export default Todo2;
