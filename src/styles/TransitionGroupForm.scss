@@ -21,10 +21,10 @@
 }
 
 /**--- example styles ---**/
-body {
-	padding: 0;
-	margin: 1em;
-}
+//body {
+//	padding: 0;
+//	margin: 1em;
+//}
 
 [class="container"] { //prevent clash with Bootstrap Container.. But I should figure out how to scope them damnit
 	position: fixed;

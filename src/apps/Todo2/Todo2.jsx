@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import InputBox from './components/InputBox';
 import DefaultWrapper from './components/DefaultWrapper';
 import theme from './themes/default';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 const spacing = theme.spacing;
 const loremIpsum = require('lorem-ipsum');
 
@@ -13,13 +15,16 @@ class Todo2 extends Component {
       <Wrapper>
 
         <ColumnLeft>
+          <Block><Link to='/home'>Home</Link></Block>
           <Block>{loremIpsum({count: 5})}</Block>
           <Block>{loremIpsum({count: 10})}</Block>
         </ColumnLeft>
 
         <ColumnCenter>
           <InputBox/>
-          <Block>{loremIpsum({count: 5})}</Block>
+          <TaskList>
+            <p>task</p>
+          </TaskList>
         </ColumnCenter>
 
         <ColumnRight>
@@ -32,6 +37,14 @@ class Todo2 extends Component {
   }
 }
 
+
+const Task = styled.div`
+
+`
+
+const TaskList = styled(DefaultWrapper)`
+  border-radius: 0;
+`
 
 const Block = styled(DefaultWrapper)`
 
@@ -78,4 +91,12 @@ const Wrapper = styled.div`
   }
 `
 
-export default Todo2;
+const mapStateToProps = state => ({
+  tasks: state.tasks,
+});
+
+const mapDispatchToProps = dispatch => ({
+  // setCounter: (value) => dispatch(setCounter(value)),
+});
+
+export default connect(mapStateToProps, /*mapDispatchToProps*/ null)(Todo2);
