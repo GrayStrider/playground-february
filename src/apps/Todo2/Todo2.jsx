@@ -8,10 +8,19 @@ class Todo2 extends Component {
   render() {
     return (
       <Wrapper>
-        <InputBox/>
-        <Block1>
-          {loremIpsum({count: 5})}
-        </Block1>
+
+        <ColumnLeft>
+          <Block2>{loremIpsum({count: 5})}</Block2>
+        </ColumnLeft>
+
+        <ColumnCenter>
+          <InputBox/>
+        </ColumnCenter>
+
+        <ColumnRight>
+          <Block1>{loremIpsum({count: 5})}</Block1>
+        </ColumnRight>
+
       </Wrapper>
     );
   }
@@ -27,6 +36,22 @@ const Wrapper = styled.div`
 `
 
 const Block1 = styled(DefaultWrapper)`
+
+`
+
+const Block2 = styled(DefaultWrapper)`
+
+`
+
+const ColumnLeft = styled.div`
+
+`
+
+const ColumnCenter = styled.div`
+
+`
+
+const ColumnRight = styled.div`
 
 `
 
