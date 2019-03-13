@@ -21,7 +21,7 @@ class Todo2 extends Component {
 
         <ColumnRight>
           <Block>{loremIpsum({count: 5})}</Block>
-          <Block>{loremIpsum({count: 15})}</Block>
+          <Block>{loremIpsum({count: 40})}</Block>
         </ColumnRight>
 
       </Wrapper>
@@ -35,11 +35,12 @@ const Block = styled(DefaultWrapper)`
 `
 
 const Column = styled.div`
-  min-width: 30%;
   padding: 0 0.5em 0 0.5em;
 
 `
 const ColumnLeft = styled(Column)`
+  min-width: 30%;
+  max-width: 40%;
 
 `
 
@@ -55,8 +56,11 @@ const Wrapper = styled.div`
   align-items: flex-start;
 
   background: #ddd;
-  height: 100vh;
+  position: absolute;
+  height: 100%;
   padding: 0 0.5em 0 0.5em;
+  
+  overflow: auto;
   
   @media(max-width: 1000px) {
     & ${ColumnLeft} {
