@@ -21,7 +21,6 @@ class InputBox extends Component {
 
 
 const Wrapper = styled(DefaultWrapper)`
-  max-width: 20em;
 
   & input[type='text'] {
     border: solid thin #d1d1d1;

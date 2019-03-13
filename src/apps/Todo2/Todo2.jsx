@@ -18,9 +18,12 @@ class Todo2 extends Component {
 }
 
 const Wrapper = styled.div`
+  display: flex;
+  align-items: flex-start;
+
   background: #ddd;
   height: 100vh;
-  overflow: auto;
+  padding: 1em;
 `
 
 const Block1 = styled(DefaultWrapper)`
