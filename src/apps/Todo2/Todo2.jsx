@@ -23,7 +23,7 @@ const Wrapper = styled.div`
 
   background: #ddd;
   height: 100vh;
-  padding: 1em;
+  padding: 0.5em;
 `
 
 const Block1 = styled(DefaultWrapper)`

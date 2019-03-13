@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const DefaultWrapper = styled.div`
+  margin: 0.5em;
   display: flex;
   background: #f9feff;
   padding: 1em;
