@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import InputBox from './components/InputBox';
 import DefaultWrapper from './components/DefaultWrapper';
+import theme from './themes/default';
+const spacing = theme.spacing;
 const loremIpsum = require('lorem-ipsum');
+
 
 class Todo2 extends Component {
   render() {
@@ -35,7 +38,7 @@ const Block = styled(DefaultWrapper)`
 `
 
 const Column = styled.div`
-  padding: 0 0.5em 0 0.5em;
+  padding: 0 ${spacing} 0 ${spacing};
 
 `
 const ColumnLeft = styled(Column)`
@@ -58,7 +61,7 @@ const Wrapper = styled.div`
   background: #ddd;
   position: absolute;
   height: 100%;
-  padding: 0 0.5em 0 0.5em;
+  padding: 0 ${spacing} 0 ${spacing};
   
   overflow: auto;
   

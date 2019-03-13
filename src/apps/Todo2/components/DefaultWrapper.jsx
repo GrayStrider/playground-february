@@ -1,7 +1,9 @@
 import styled from 'styled-components';
+import theme from '../themes/default';
+const spacing = theme.spacing;
 
 const DefaultWrapper = styled.div`
-  margin: 1em 0 1em 0;
+  margin: calc(${spacing } * 2) 0 calc(${spacing } * 2) 0;
   display: flex;
   background: #f9feff;
   padding: 1em;

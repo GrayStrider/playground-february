@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import DefaultWrapper from './DefaultWrapper';
-
+import theme from '../themes/default';
+const spacing = theme.spacing;
 
 class InputBox extends Component {
   handleSubmit = (event) => {
@@ -22,15 +23,19 @@ class InputBox extends Component {
 
 const Wrapper = styled(DefaultWrapper)`
 
+  * {
+     height: 30px;
+  }
+
   & input[type='text'] {
     border: solid thin #d1d1d1;
-    padding: 0.5em;
+    padding: ${spacing};
     box-shadow: 3px 3px 30px #e2e2e2;
     flex: auto;
   }
   
   & input[type='submit'] {
-    margin-left: 0.5em;
+    margin-left: ${spacing};
   }
 `;
 export default InputBox;
