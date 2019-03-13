@@ -34,16 +34,20 @@ const Block = styled(DefaultWrapper)`
 
 `
 
-const ColumnLeft = styled.div`
+const Column = styled.div`
   min-width: 30%;
+  padding: 0 0.5em 0 0.5em;
+
+`
+const ColumnLeft = styled(Column)`
 
 `
 
-const ColumnCenter = styled.div`
+const ColumnCenter = styled(Column)`
 
 `
 
-const ColumnRight = styled.div`
+const ColumnRight = styled(Column)`
 
 `
 const Wrapper = styled.div`
@@ -52,7 +56,7 @@ const Wrapper = styled.div`
 
   background: #ddd;
   height: 100vh;
-  padding: 0.5em;
+  padding: 0 0.5em 0 0.5em;
   
   @media(max-width: 1000px) {
     & ${ColumnLeft} {
