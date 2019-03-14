@@ -3,7 +3,8 @@ import theme from '../themes/default';
 const spacing = theme.spacing;
 
 const DefaultWrapper = styled.div`
-  margin: calc(${spacing } * 2) 0 calc(${spacing } * 2) 0;
+  //margin: calc(${spacing } * 2) 0 calc(${spacing } * 2) 0;
+  margin: ${spacing} 0 ${spacing} 0;
   display: flex;
   background: #f9feff;
   padding: 1em;

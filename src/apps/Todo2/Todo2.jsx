@@ -36,11 +36,23 @@ class Todo2 extends Component {
               ),
             )}
           </TaskList>
+            <Deleted>
+              {this.props.tasks
+                .filter(task => task.isDeleted)
+                .map(task => (
+                    <Task key={task.id}
+                          id = {task.id}
+                          content={task.content}
+                          completed={task.completed}
+                    />
+                  ),
+                )}
+            </Deleted>
         </ColumnCenter>
 
         <ColumnRight>
           <Block>{loremIpsum({ count: 5 })}</Block>
-          <Block>{loremIpsum({ count: 40 })}</Block>
+          <Block>{loremIpsum({ count: 4 })}</Block>
         </ColumnRight>
 
       </Wrapper>
@@ -60,13 +72,20 @@ const TaskList = styled(DefaultWrapper)`
   }
 `;
 
+const Deleted = styled(TaskList)`
+  //margin-top: auto;
+`
+
 const Block = styled(DefaultWrapper)`
 
 `;
 
 const Column = styled.div`
+  display: flex;
+  flex-direction: column;
   padding: 0 ${spacing} 0 ${spacing};
   flex: 1;
+  //height: 100%;
 
 `;
 const ColumnLeft = styled(Column)`
@@ -91,7 +110,7 @@ const Wrapper = styled.div`
   position: absolute;
   height: 100%;
   width: 100%;
-  padding: 0 ${spacing} 0 ${spacing};
+  padding: ${spacing};
   
   overflow: auto;
   
