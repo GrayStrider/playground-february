@@ -34,6 +34,7 @@ class Todo2 extends Component {
               ),
             )}
           </TaskList>
+          {/*<Block>{loremIpsum({ count: 10 })}</Block>*/}
         </ColumnCenter>
 
         <ColumnRight>
@@ -60,6 +61,7 @@ const Block = styled(DefaultWrapper)`
 
 const Column = styled.div`
   padding: 0 ${spacing} 0 ${spacing};
+  flex: 1;
 
 `;
 const ColumnLeft = styled(Column)`
@@ -78,24 +80,27 @@ const ColumnRight = styled(Column)`
 const Wrapper = styled.div`
   display: flex;
   align-items: flex-start;
+  justify-items: stretch;
 
   background: #ddd;
   position: absolute;
   height: 100%;
+  width: 100%;
   padding: 0 ${spacing} 0 ${spacing};
   
   overflow: auto;
   
-  @media(max-width: 1000px) {
+  @media(max-width: 800px) {
     & ${ColumnLeft} {
       display: none;
     }
   }
   
-  @media(max-width: 730px) {
+  @media(max-width: 700px) {
     & ${ColumnRight} {
       display: none;
     }
+    
   }
 `;
 
