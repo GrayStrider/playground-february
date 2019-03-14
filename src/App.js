@@ -11,7 +11,6 @@ import Counter from './components/Counter';
 import { hot } from 'react-hot-loader/root';
 import ReactTransitionGroupForm from './pages/TransitionGroupForm';
 import ExchangeRatesApollo from './pages/ExchangeRatesApollo';
-import Todo from './apps/Todo/Todo';
 import Todo2 from './apps/Todo2/Todo2';
 
 class App extends Component {
@@ -26,7 +25,6 @@ class App extends Component {
           <Route exact path='/css3' component={BoxModel}/>
           <Route exact path='/flex' component={FlexBox}/>
           <Route exact path='/counter' component={Counter}/>
-          <Route exact path='/todo' component={Todo}/>
           <Route exact path='/todo2' component={Todo2}/>
           <Route exact path='/reacttransitiongroup' component={ReactTransitionGroupForm}/>
           <Route exact path='/apollo' component={ExchangeRatesApollo}/>
