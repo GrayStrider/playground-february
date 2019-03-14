@@ -1,4 +1,4 @@
-import {ADD_TODO, TOGGLEDONE } from '../../../constants/ActionTypes';
+import { ADD_TODO, DELETE_TODO, TOGGLEDONE } from '../../../constants/ActionTypes';
 
 export function toggleDone(id) {
   return {
@@ -10,6 +10,13 @@ export function toggleDone(id) {
 export function addTodo(payload) {
   return {
     type: ADD_TODO,
+    payload
+  }
+}
+
+export function deleteTask(payload) {
+  return {
+    type: DELETE_TODO,
     payload
   }
 }

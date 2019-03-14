@@ -25,7 +25,9 @@ class Todo2 extends Component {
         <ColumnCenter>
           <InputBox/>
           <TaskList>
-            {this.props.tasks.map((task) => (
+            {this.props.tasks
+              .filter(task => !task.isDeleted)
+              .map(task => (
                 <Task key={task.id}
                       id = {task.id}
                       content={task.content}
@@ -34,7 +36,6 @@ class Todo2 extends Component {
               ),
             )}
           </TaskList>
-          {/*<Block>{loremIpsum({ count: 10 })}</Block>*/}
         </ColumnCenter>
 
         <ColumnRight>
@@ -53,6 +54,10 @@ const TaskList = styled(DefaultWrapper)`
   border-radius: 0;
   display: flex;
   flex-direction: column;
+  
+  &:empty {
+    display: none;
+  }
 `;
 
 const Block = styled(DefaultWrapper)`
