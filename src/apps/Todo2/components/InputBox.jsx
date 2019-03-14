@@ -4,25 +4,44 @@ import DefaultWrapper from './DefaultWrapper';
 import theme from '../themes/default';
 import { connect } from 'react-redux';
 import { addTodo } from '../actions/actions_todo';
+
 const spacing = theme.spacing;
 
 class InputBox extends Component {
-  constructor(props){
-    super(props)
-    this.addTodo = this.props.addTodo.bind(this);
-  }
-
-
-  handleSubmit = (event) => {
-    event.preventDefault();
-    addTodo(document.getElementById('todo_input'));
-  }
+  // constructor(props){
+  //   super(props)
+  //   this.addTodo = this.props.addTodo.bind(this);
+  // }
+  //
+  //
+  // handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   addTodo(document.getElementById('todo_input').value);
+  // }
 
   render() {
+    let input;
+    const handleSubmit = (e) => {
+      e.preventDefault();
+
+      //================================================================================
+      // validation
+      if (!input.value.trim()) {
+        input.value = '';
+        return;
+      }
+      //================================================================================
+
+
+      this.props.addTodo(input.value);
+      input.value = '';
+    };
     return (
-      <Wrapper as='form' onSubmit={(event) => this.handleSubmit(event)}>
-          <input id='todo_input' type='text' placeholder='Add new task here'/>
-          <input type='submit' value='Add'/>
+      <Wrapper as='form' onSubmit={handleSubmit}>
+        <input id='todo_input' type='text' placeholder='Add new task here' ref={node => {
+          input = node;
+        }}/>
+        <input type='submit' value='Add'/>
       </Wrapper>
     );
   }
