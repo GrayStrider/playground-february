@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { deleteTask, toggleDone } from '../actions/todo';
+import { deleteTask, toggleDone, changeSelected } from '../actions/todo';
 
 class Task extends Component {
   render() {
     return (
-      <Wrapper id={this.props.id}>
+      <Wrapper
+        id={this.props.id}
+        onClick={() => this.props.changeSelected(this.props.id)}>
+
         <input type='checkbox'
                checked={this.props.completed}
                onChange={() => this.props.toggleDone(this.props.id)}
         />
+
         {this.props.content}
+
         <span className='delete_button'
               onClick={() => this.props.deleteTask(this.props.id)}
               role='img'
@@ -52,13 +57,10 @@ const Wrapper = styled.div`
   
 `;
 
-// const mapStateToProps = state => ({
-//   // count: state.count,
-// });
-
 const mapDispatchToProps = dispatch => ({
   toggleDone: (id) => dispatch(toggleDone(id)),
   deleteTask: (id) => dispatch(deleteTask(id)),
+  changeSelected: (id) => dispatch(changeSelected(id)),
 });
 
 export default connect(null, mapDispatchToProps)(Task);

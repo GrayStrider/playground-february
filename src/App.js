@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import NotFound from './pages/NotFound';
+import NotFound from './utils/NotFound';
 import { Redirect } from 'react-router';
 import { hot } from 'react-hot-loader/root';
-import Todo from './pages/Todo';
+import Todo from './Todo';
 
 class App extends Component {
   render() {

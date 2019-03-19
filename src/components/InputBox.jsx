@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import DefaultWrapper from './DefaultWrapper';
-import theme from '../themes/default';
+import theme from '../utils/themes/default';
 import { connect } from 'react-redux';
 import { addTodo } from '../actions/todo';
 

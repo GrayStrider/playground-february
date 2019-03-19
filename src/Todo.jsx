@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import InputBox from '../components/InputBox';
-import DefaultWrapper from '../components/DefaultWrapper';
-import theme from '../themes/default';
+import InputBox from './components/InputBox';
+import DefaultWrapper from './components/DefaultWrapper';
+import theme from './utils/themes/default';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Task from '../components/Task';
+import Task from './components/Task';
 
 const spacing = theme.spacing;
 const loremIpsum = require('lorem-ipsum');
