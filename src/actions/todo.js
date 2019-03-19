@@ -1,4 +1,11 @@
-import { ADD_TO_SELECTED, ADD_TODO, CHANGE_SELECTED, DELETE_TODO, TOGGLEDONE } from '../constants/ActionTypes';
+import {
+  ADD_TO_SELECTED,
+  ADD_TODO,
+  CHANGE_SELECTED,
+  DELETE_TODO,
+  SET_SELECTED,
+  TOGGLEDONE,
+} from '../constants/ActionTypes';
 
 export function toggleDone(id) {
   return {
@@ -21,17 +28,11 @@ export function deleteTask(payload) {
   };
 }
 
-export function changeSelected(payload) {
+export function setSelected(payload, modifier) {
   return {
-    type: CHANGE_SELECTED,
+    type: SET_SELECTED,
     payload,
-  };
-}
-
-export function addToSelected(payload) {
-  return {
-    type: ADD_TO_SELECTED,
-    payload,
+    modifier,
   };
 }
 
