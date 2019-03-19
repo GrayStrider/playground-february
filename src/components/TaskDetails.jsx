@@ -5,25 +5,16 @@ import DefaultWrapper from './DefaultWrapper';
 
 class TaskDetails extends Component {
   render() {
-    const anySelected = this.props.currentlySelected.length !== 0;
-    const details = anySelected
-      ? this.props.tasks
-        .filter((task) => task.id === this.props.currentlySelected[0])[0]
-        .details : null;
 
     return (
       <Wrapper>
-        {anySelected
-          ? this.props.tasks
-            .filter((task) => task.id === this.props.currentlySelected[0])[0]
-            .content : "No task selected."
+        {
+          !this.props.currentlySelected.length // is empty
+            ? null
+            : this.props.currentlySelected.length === 1 // only one task selected
+              ? this.props.tasks.find((task) => task.id === this.props.currentlySelected[0]).content // display task with id
+              : this.props.currentlySelected.length + ' tasks selected.' // if multiple selected
         }
-        <br/>
-        {anySelected
-          ? details
-            ? details
-            : 'No details provided.'
-          : null}
       </Wrapper>
     );
   }

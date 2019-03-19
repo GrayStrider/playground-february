@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { deleteTask, toggleDone, changeSelected } from '../actions/todo';
+import { deleteTask, toggleDone, changeSelected, addToSelected } from '../actions/todo';
 
 class Task extends Component {
   render() {
     return (
       <Wrapper
-        id={this.props.id} className={this.props.currentlySelected[0] === this.props.id ? 'selected' : null}
-        onClick={() => this.props.changeSelected(this.props.id)}>
+        id={this.props.id} className={this.props.currentlySelected.includes(this.props.id) ? 'selected' : null}
+
+        onClick={(e) => {
+          if (e.ctrlKey) {
+            this.props.addToSelected(this.props.id);
+          }
+          else this.props.changeSelected(this.props.id);
+        }}>
 
         <input type='checkbox'
                checked={this.props.completed}
@@ -21,7 +27,7 @@ class Task extends Component {
               onClick={(e) => {
                 e.stopPropagation(); // prevent task selection on deletion
                 this.props.deleteTask(this.props.id)
-                this.props.changeSelected(null);
+                this.props.changeSelected(this.props.id);
               }}
               role='img'
               aria-label='Delete task'
@@ -69,6 +75,7 @@ const mapDispatchToProps = dispatch => ({
   toggleDone: (id) => dispatch(toggleDone(id)),
   deleteTask: (id) => dispatch(deleteTask(id)),
   changeSelected: (id) => dispatch(changeSelected(id)),
+  addToSelected: (id) => dispatch(addToSelected(id)),
 });
 
 const mapStateToProps = state => ({
