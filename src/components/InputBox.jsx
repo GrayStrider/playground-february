@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import DefaultWrapper from './DefaultWrapper';
 import theme from '../themes/default';
 import { connect } from 'react-redux';
-import { addTodo } from '../actions/actions_todo';
+import { addTodo } from '../actions/todo';
 
 const spacing = theme.spacing;
 

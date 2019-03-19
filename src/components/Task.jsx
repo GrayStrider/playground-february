@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { deleteTask, toggleDone } from '../actions/actions_todo';
+import { deleteTask, toggleDone } from '../actions/todo';
 
 class Task extends Component {
   render() {

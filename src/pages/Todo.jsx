@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import InputBox from './components/InputBox';
-import DefaultWrapper from './components/DefaultWrapper';
-import theme from './themes/default';
+import InputBox from '../components/InputBox';
+import DefaultWrapper from '../components/DefaultWrapper';
+import theme from '../themes/default';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Task from '../Todo2/components/Task';
+import Task from '../components/Task';
 
 const spacing = theme.spacing;
 const loremIpsum = require('lorem-ipsum');
 
 
-class Todo2 extends Component {
+class Todo extends Component {
   render() {
     return (
       <Wrapper>
@@ -132,4 +132,4 @@ const mapStateToProps = state => ({
   tasks: state.tasks,
 });
 
-export default connect(mapStateToProps, null)(Todo2);
+export default connect(mapStateToProps, null)(Todo);
