@@ -7,7 +7,7 @@ class Task extends Component {
   render() {
     return (
       <Wrapper
-        id={this.props.id}
+        id={this.props.id} className={this.props.currentlySelected[0] === this.props.id ? 'selected' : null}
         onClick={() => this.props.changeSelected(this.props.id)}>
 
         <input type='checkbox'
@@ -18,7 +18,11 @@ class Task extends Component {
         {this.props.content}
 
         <span className='delete_button'
-              onClick={() => this.props.deleteTask(this.props.id)}
+              onClick={(e) => {
+                e.stopPropagation(); // prevent task selection on deletion
+                this.props.deleteTask(this.props.id)
+                this.props.changeSelected(null);
+              }}
               role='img'
               aria-label='Delete task'
         >❌</span>
@@ -55,6 +59,10 @@ const Wrapper = styled.div`
     margin-right: 0.5em;
   }
   
+  &.selected {
+    background: #e5e5e5;
+    font-weight: bold;
+  }
 `;
 
 const mapDispatchToProps = dispatch => ({
@@ -63,4 +71,8 @@ const mapDispatchToProps = dispatch => ({
   changeSelected: (id) => dispatch(changeSelected(id)),
 });
 
-export default connect(null, mapDispatchToProps)(Task);
+const mapStateToProps = state => ({
+  currentlySelected: state.currentlySelected,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Task);

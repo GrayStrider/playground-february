@@ -6,6 +6,7 @@ import theme from './utils/themes/default';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Task from './components/Task';
+import TaskDetails from './components/TaskDetails';
 
 const spacing = theme.spacing;
 const loremIpsum = require('lorem-ipsum');
@@ -51,8 +52,7 @@ class Todo extends Component {
         </ColumnCenter>
 
         <ColumnRight>
-          <Block>{loremIpsum({ count: 5 })}</Block>
-          <Block>{loremIpsum({ count: 4 })}</Block>
+          <TaskDetails/>
         </ColumnRight>
 
       </Wrapper>

@@ -4,6 +4,7 @@ const boilerplate = [
   {
     id: 0,
     content: 'Buy milk',
+    details: "1,5l",
     priority: 1,
     tags: ['home', 'groceries'],
     completed: false,
