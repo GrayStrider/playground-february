@@ -23,7 +23,7 @@ const currentlySelected = (state = [0, 1], action) => {
           : state;
       }
 
-      else return state // TODO Shift
+      else return state // TODO Shift (after task order implementation)
     }
 
     default:

@@ -5,22 +5,37 @@ import DefaultWrapper from './DefaultWrapper';
 
 class TaskDetails extends Component {
   render() {
-
+    const selected = this.props.currentlySelected
+    const tasks = this.props.tasks
     return (
-      <Wrapper>
-        {
-          !this.props.currentlySelected.length // is empty
-            ? null
-            : this.props.currentlySelected.length === 1 // only one task selected
-              ? this.props.tasks.find((task) => task.id === this.props.currentlySelected[0]).content // display task with id
-              : this.props.currentlySelected.length + ' tasks selected.' // if multiple selected
-        }
-      </Wrapper>
+      <>
+        <Content>
+          {
+            selected.length === 0 // is empty
+              ? "Click a task to view details!"
+              : selected.length === 1 // only one task selected
+                ? tasks.find((task) => task.id === selected[0]).content // display task with id
+                : selected.length + ' tasks selected.' // if multiple selected
+          }
+        </Content>
+        <Description>
+          {
+            selected.length !== 1
+              ? null
+              : !tasks.find((task) => task.id === selected[0]).description
+                ? null
+                : tasks.find((task) => task.id === selected[0]).description
+          }
+        </Description>
+      </>
     );
   }
 }
 
-const Wrapper = styled(DefaultWrapper)`
+const Content = styled(DefaultWrapper)`
+`;
+
+const Description = styled(DefaultWrapper)`
   
 `;
 

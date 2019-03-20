@@ -20,10 +20,8 @@ class Task extends Component {
         }
         }>
 
-        <input type='checkbox'
-               checked={this.props.completed}
-               onChange={() => this.props.toggleDone(this.props.id)}
-        />
+        <input type='checkbox' checked={this.props.completed}
+               onChange={() => this.props.toggleDone(this.props.id)}/>
 
         {this.props.content}
 
@@ -32,10 +30,7 @@ class Task extends Component {
                 e.stopPropagation(); // prevent task selection on deletion
                 this.props.deleteTask(this.props.id)
                 this.props.setSelected(this.props.id, "Delete");
-              }}
-              role='img'
-              aria-label='Delete task'
-        >❌</span>
+              }} role='img' aria-label='Delete task'>❌</span>
       </Wrapper>
     );
   }
