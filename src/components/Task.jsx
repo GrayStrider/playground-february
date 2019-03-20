@@ -28,7 +28,7 @@ class Task extends Component {
         <span className='delete_button'
               onClick={(e) => {
                 e.stopPropagation(); // prevent task selection on deletion
-                this.props.deleteTask(this.props.id)
+                this.props.deleteTask(this.props.id) // TODO trigger only if selected
                 this.props.setSelected(this.props.id, "Delete");
               }} role='img' aria-label='Delete task'>❌</span>
       </Wrapper>

@@ -34,7 +34,8 @@ const tasks = (state = boilerplate, action) => {
     case TOGGLEDONE:
       return state.map(todo =>
         (todo.id === action.id)
-          ? { ...todo, completed: !todo.completed } : todo,
+          ? { ...todo, completed: !todo.completed }
+          : todo,
       );
     case ADD_TODO:
       return [...state,
