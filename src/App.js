@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import NotFound from './utils/NotFound';
 import { Redirect } from 'react-router';
 import { hot } from 'react-hot-loader/root';
-import Todo from './Todo';
+import Todo from './components/Main/Todo';
 
 class App extends Component {
   render() {
