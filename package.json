@@ -5,7 +5,6 @@
   "dependencies": {
     "@babel/core": "7.2.2",
     "@svgr/webpack": "4.1.0",
-    "apollo-boost": "^0.3.1",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "9.0.0",
     "babel-jest": "^24.0.0",
@@ -13,7 +12,6 @@
     "babel-plugin-named-asset-import": "^0.3.1",
     "babel-preset-react-app": "^7.0.1",
     "bfj": "6.1.1",
-    "bootstrap": "^4.3.1",
     "case-sensitive-paths-webpack-plugin": "2.2.0",
     "connected-react-router": "^6.3.1",
     "cross-env": "^5.2.0",
@@ -30,7 +28,6 @@
     "file-loader": "2.0.0",
     "fork-ts-checker-webpack-plugin-alt": "0.4.14",
     "fs-extra": "7.0.1",
-    "graphql": "^14.1.1",
     "history": "^4.7.2",
     "html-webpack-plugin": "4.0.0-alpha.2",
     "identity-obj-proxy": "3.0.0",
@@ -47,16 +44,13 @@
     "postcss-preset-env": "6.5.0",
     "postcss-safe-parser": "4.0.1",
     "react": "^16.8.2",
-    "react-apollo": "^2.5.2",
     "react-app-polyfill": "^0.2.1",
-    "react-bootstrap": "^1.0.0-beta.5",
     "react-dev-utils": "^7.0.3",
     "react-dom": "^16.8.2",
     "react-hot-loader": "^4.7.2",
     "react-redux": "^6.0.1",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
-    "react-transition-group": "latest",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.8",
     "redux-form": "^8.1.0",
@@ -71,6 +65,15 @@
     "webpack-dev-server": "^3.2.1",
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "3.6.3"
+  },
+  "devDependencies": {
+    "@hot-loader/react-dom": "^16.8.3",
+    "@types/styled-components": "^4.1.10",
+    "babel-plugin-react-css-modules": "^5.1.1",
+    "lorem-ipsum": "^1.0.6",
+    "node-sass": "^4.11.0",
+    "postcss-scss": "^2.0.0",
+    "webpack-cli": "^3.2.3"
   },
   "scripts": {
     "start:dev": "cross-env NODE_ENV=development node server",
@@ -146,15 +149,5 @@
       "C:\\Coding_Projects\\create-react-app-playground-february\\node_modules\\jest-watch-typeahead\\filename.js",
       "C:\\Coding_Projects\\create-react-app-playground-february\\node_modules\\jest-watch-typeahead\\testname.js"
     ]
-  },
-  "devDependencies": {
-    "@hot-loader/react-dom": "^16.8.3",
-    "@types/styled-components": "^4.1.10",
-    "babel-plugin-react-css-modules": "^5.1.1",
-    "graphql-tag": "latest",
-    "lorem-ipsum": "^1.0.6",
-    "node-sass": "^4.11.0",
-    "postcss-scss": "^2.0.0",
-    "webpack-cli": "^3.2.3"
   }
 }
