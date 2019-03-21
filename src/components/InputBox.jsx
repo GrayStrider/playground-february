@@ -37,7 +37,7 @@ class InputBox extends Component {
       input.value = '';
     };
     return (
-      <Wrapper as='form' onSubmit={handleSubmit}>
+      <Wrapper as='form' autoComplete="off" onSubmit={handleSubmit}>
         <input id='todo_input' type='text' placeholder='Add new task here' ref={node => {
           input = node;
         }}/>
