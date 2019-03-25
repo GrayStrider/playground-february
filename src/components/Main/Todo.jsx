@@ -29,26 +29,26 @@ class Todo extends Component {
             {this.props.tasks
               .filter(task => !task.isDeleted)
               .map(task => (
-                <Task key={task.id}
-                      id = {task.id}
-                      content={task.content}
-                      completed={task.completed}
-                />
-              ),
-            )}
+                  <Task key={task.id}
+                        id={task.id}
+                        content={task.content}
+                        completed={task.completed}
+                  />
+                ),
+              )}
           </TaskList>
-            <Deleted>
-              {this.props.tasks
-                .filter(task => task.isDeleted)
-                .map(task => (
-                    <Task key={task.id}
-                          id = {task.id}
-                          content={task.content}
-                          completed={task.completed}
-                    />
-                  ),
-                )}
-            </Deleted>
+          <Deleted>
+            {this.props.tasks
+              .filter(task => task.isDeleted)
+              .map(task => (
+                  <Task key={task.id}
+                        id={task.id}
+                        content={task.content}
+                        completed={task.completed}
+                  />
+                ),
+              )}
+          </Deleted>
         </ColumnCenter>
 
         <ColumnRight>
@@ -59,7 +59,6 @@ class Todo extends Component {
     );
   }
 }
-
 
 
 const TaskList = styled(DefaultWrapper)`
@@ -74,7 +73,7 @@ const TaskList = styled(DefaultWrapper)`
 
 const Deleted = styled(TaskList)`
   //margin-top: auto;
-`
+`;
 
 const Block = styled(DefaultWrapper)`
 
