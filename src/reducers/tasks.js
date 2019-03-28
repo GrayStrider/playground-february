@@ -1,4 +1,4 @@
-import { ADD_TODO, DELETE_TODO, TOGGLEDONE } from '../constants/ActionTypes';
+import todoActions from '../actions';
 
 const boilerplate = [
   {
@@ -31,13 +31,13 @@ const boilerplate = [
 const tasks = (state = boilerplate, action) => {
   switch (action.type) {
 
-    case TOGGLEDONE:
+    case todoActions.TOGGLEDONE:
       return state.map(todo =>
         (todo.id === action.id)
           ? { ...todo, completed: !todo.completed }
           : todo,
       );
-    case ADD_TODO:
+    case todoActions.ADD_TODO:
       return [...state,
         {
           id: state.length + 1,
@@ -47,7 +47,7 @@ const tasks = (state = boilerplate, action) => {
         },
       ];
 
-    case DELETE_TODO:
+    case todoActions.DELETE_TODO:
       return state.map(todo =>
         (todo.id === action.payload)
           ? { ...todo, isDeleted: !todo.isDeleted} : todo,

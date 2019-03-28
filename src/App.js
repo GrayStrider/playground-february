@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import NotFound from './utils/NotFound';
 import { Redirect } from 'react-router';
 import { hot } from 'react-hot-loader/root';
 import Todo from './components/Main/Todo';
@@ -10,9 +9,8 @@ class App extends Component {
     return (
       <div>
         <Switch>
-          <Redirect exact from='/' to='/todo'/>
-          <Route exact path='/todo' component={Todo}/>
-          <Route component={NotFound}/>
+          <Route exact path='/' component={Todo}/>
+          <Redirect from='*' to='/'/>
         </Switch>
       </div>
     );

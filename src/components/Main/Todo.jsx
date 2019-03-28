@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import InputBox from '../InputBox';
 import DefaultWrapper from '../DefaultWrapper';
-import theme from '../../utils/themes/default';
+import theme from '../../themes/default';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Task from '../Task';

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import DefaultWrapper from './DefaultWrapper';
-import theme from '../utils/themes/default';
+import theme from '../themes/default';
 import { connect } from 'react-redux';
-import { addTodo } from '../actions/todo';
+import todoActions from '../actions';
 
 const spacing = theme.spacing;
 
@@ -71,7 +71,7 @@ const Wrapper = styled(DefaultWrapper)`
 // });
 
 const mapDispatchToProps = dispatch => ({
-  addTodo: (content) => dispatch(addTodo(content)),
+  addTodo: (content) => dispatch(todoActions.addTodo(content)),
 });
 
 export default connect(null, mapDispatchToProps)(InputBox);

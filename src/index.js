@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './utils/index.scss';
+import './index.scss';
 import App from './App';
-import * as serviceWorker from './utils/serviceWorker';
-import configureStore, {history} from './utils/configureStore';
+import * as serviceWorker from './registerServiceWorker';
+import configureStore, {history} from './store';
 import { Provider } from 'react-redux';
 import {ConnectedRouter} from 'connected-react-router';
 

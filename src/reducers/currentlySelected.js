@@ -1,10 +1,10 @@
-import { SET_SELECTED } from '../constants/ActionTypes';
 import { pull } from 'lodash';
+import todoActions from '../actions';
 
 const currentlySelected = (state = [0, 1], action) => {
   switch (action.type) {
 
-    case SET_SELECTED: {
+    case todoActions.SET_SELECTED: {
       if (action.modifier === null) {
         return state.includes(action.payload)
           ? pull([...state], action.payload)

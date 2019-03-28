@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { deleteTask, toggleDone, setSelected } from '../actions/todo';
+import todoActions from '../actions';
 
 class Task extends Component {
   constructor(props) {
@@ -83,9 +83,9 @@ const Wrapper = styled.div`
 `;
 
 const mapDispatchToProps = dispatch => ({
-  toggleDone: (id) => dispatch(toggleDone(id)),
-  deleteTask: (id) => dispatch(deleteTask(id)),
-  setSelected: (id, modifier) => dispatch(setSelected(id, modifier)),
+  toggleDone: (id) => dispatch(todoActions.toggleDone(id)),
+  deleteTask: (id) => dispatch(todoActions.deleteTask(id)),
+  setSelected: (id, modifier) => dispatch(todoActions.setSelected(id, modifier)),
 });
 
 const mapStateToProps = state => ({
