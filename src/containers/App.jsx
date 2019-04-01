@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import InputBox from '../../components/InputBox';
+import InputBox from '../components/InputBox';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Task from '../../components/Task';
-import TaskDetails from '../../components/TaskDetails';
+import Task from '../components/Task';
+import TaskDetails from '../components/TaskDetails';
 import {
   AppWrapper,
   Block,
@@ -12,7 +12,7 @@ import {
   ColumnRight,
   Deleted,
   TaskList,
-} from '../../styles';
+} from '../styles';
 
 const loremIpsum = require('lorem-ipsum');
 
@@ -20,7 +20,7 @@ const mapStateToProps = state => ({
   tasks: state.tasks,
 });
 
-class Index extends Component {
+class App extends Component {
   render() {
     return (
       <AppWrapper>
@@ -67,4 +67,4 @@ class Index extends Component {
   }
 }
 
-export default connect(mapStateToProps, null)(Index);
+export default connect(mapStateToProps, null)(App);

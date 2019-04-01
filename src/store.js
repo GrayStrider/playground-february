@@ -4,8 +4,11 @@ import {composeWithDevTools} from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import { routerMiddleware } from 'connected-react-router';
 import createRootReducer from './reducers/rootReducer';
+import createSagaMiddleware from 'redux-saga';
+import rootSaga from './sagas/rootSaga';
 
 export const history = createBrowserHistory()
+const sagaMiddleware = createSagaMiddleware();
 
 export default function store(preloadedState) {
   const store = createStore(
@@ -14,10 +17,14 @@ export default function store(preloadedState) {
     composeWithDevTools(
       applyMiddleware(
         routerMiddleware(history),
+        sagaMiddleware,
         thunk
       ),
     ),
   )
+
+  sagaMiddleware.run(rootSaga)
+
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
     module.hot.accept("./reducers/rootReducer", () => {
