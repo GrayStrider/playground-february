@@ -13,52 +13,42 @@ const mapStateToProps = state => ({
   currentlySelected: state.currentlySelected,
 });
 
-class Task extends Component {
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-    this.handleDelete = this.handleDelete.bind(this);
-  }
+function Task(props) {
 
-  handleClick(e) {
+  function handleClick(e) {
     if (e.ctrlKey) {
-      this.props.setSelected(this.props.id, 'Ctrl');
+      props.setSelected(props.id, 'Ctrl');
     } else if (e.shiftKey) {
-      this.props.setSelected(this.props.id, 'Shift');
-    } else this.props.setSelected(this.props.id, null);
+      props.setSelected(props.id, 'Shift');
+    } else props.setSelected(props.id, null);
   }
 
-  handleDelete(e) {
+  function handleDelete(e) {
     e.stopPropagation();
-    this.props.deleteTask(this.props.id);
-    this.props.setSelected(this.props.id, 'Delete'); // TODO trigger only if selected
+    props.deleteTask(props.id);
+    props.setSelected(props.id, 'Delete'); // TODO trigger only if selected
   }
 
-  render() {
-    let isSelected = this.props.currentlySelected.includes(this.props.id);
+  let isSelected = props.currentlySelected.includes(props.id);
 
-    return (
-      <TaskWrapper
-        id={this.props.id}
-        className={isSelected ? 'selected' : null}
-        onClick={this.handleClick}>
+  return (
+    <TaskWrapper
+      id={props.id}
+      className={isSelected ? 'selected' : null}
+      onClick={handleClick}>
 
-        <input type='checkbox'
-               checked={this.props.completed}
-               onClick={(event) => {
-                 event.stopPropagation();
-                 this.props.toggleDone(this.props.id);
-               }}/>
+      <input type='checkbox' checked={props.completed}
+             onClick={(event) => {
+               event.stopPropagation();
+               props.toggleDone(props.id);
+             }}/>
 
-        {this.props.content}
+      {props.content}
 
-        <span className='delete_button'
-              onClick={this.handleDelete}
-              role='img'
-              aria-label='Delete task'>❌</span>
-      </TaskWrapper>
-    );
-  }
+      <span className='delete_button' onClick={handleDelete} role='img'
+            aria-label='Delete task'>❌</span>
+    </TaskWrapper>
+  );
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Task);

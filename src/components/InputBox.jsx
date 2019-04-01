@@ -7,9 +7,7 @@ const mapDispatchToProps = dispatch => ({
   addTodo: (content) => dispatch(todoActions.addTodo(content)),
 });
 
-class InputBox extends Component {
-
-  render() {
+function InputBox(props) {
     let input;
 
     function handleSubmit(e) {
@@ -18,7 +16,7 @@ class InputBox extends Component {
         input.value = '';
         return;
       }
-      this.props.addTodo(input.value);
+      props.addTodo(input.value);
       input.value = '';
     }
 
@@ -28,7 +26,6 @@ class InputBox extends Component {
         <input type='submit' value='Add'/>
       </InputBoxWrapper>
     );
-  }
 }
 
 
