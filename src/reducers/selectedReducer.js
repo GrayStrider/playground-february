@@ -1,7 +1,9 @@
 import { pull } from 'lodash';
-import todoActions from '../actions';
+import todoActions from '../actions/appActions';
 
-const currentlySelected = (state = [0, 1], action) => {
+const initialState = [0, 1];
+
+const selectedReducer = (state = initialState, action) => {
   switch (action.type) {
 
     case todoActions.SET_SELECTED: {
@@ -31,5 +33,4 @@ const currentlySelected = (state = [0, 1], action) => {
   }
 };
 
-export default currentlySelected;
-
+export default selectedReducer;

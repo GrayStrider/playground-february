@@ -1,6 +1,6 @@
-import todoActions from '../actions';
+import todoActions from '../actions/appActions';
 
-const boilerplate = [
+const initialState = [
   {
     id: 0,
     content: 'Buy milk',
@@ -28,7 +28,7 @@ const boilerplate = [
   },
 ];
 
-const tasks = (state = boilerplate, action) => {
+const todoReducer = (state = initialState, action) => {
   switch (action.type) {
 
     case todoActions.TOGGLEDONE:
@@ -61,4 +61,4 @@ const tasks = (state = boilerplate, action) => {
   }
 };
 
-export default tasks;
+export default todoReducer;

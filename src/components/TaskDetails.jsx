@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
-import DefaultWrapper from './DefaultWrapper';
+import { Content, Description } from '../styles';
+
+
+const mapStateToProps = state => ({
+  currentlySelected: state.currentlySelected,
+  tasks: state.tasks,
+});
 
 class TaskDetails extends Component {
   render() {
     const selected = this.props.currentlySelected
     const tasks = this.props.tasks
+
     return (
       <>
         <Content>
@@ -31,17 +37,5 @@ class TaskDetails extends Component {
     );
   }
 }
-
-const Content = styled(DefaultWrapper)`
-`;
-
-const Description = styled(DefaultWrapper)`
-  
-`;
-
-const mapStateToProps = state => ({
-  currentlySelected: state.currentlySelected,
-  tasks: state.tasks,
-});
 
 export default connect(mapStateToProps, null)(TaskDetails);

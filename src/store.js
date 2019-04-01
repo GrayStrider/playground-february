@@ -3,7 +3,7 @@ import { applyMiddleware, createStore } from 'redux';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import { routerMiddleware } from 'connected-react-router';
-import createRootReducer from './rootReducer';
+import createRootReducer from './reducers/rootReducer';
 
 export const history = createBrowserHistory()
 
@@ -20,8 +20,8 @@ export default function store(preloadedState) {
   )
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
-    module.hot.accept("./rootReducer", () => {
-      const nextReducer = require("./rootReducer").default;
+    module.hot.accept("./reducers/rootReducer", () => {
+      const nextReducer = require("./reducers/rootReducer").default;
 
       store.replaceReducer(nextReducer);
     });
