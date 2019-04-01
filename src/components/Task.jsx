@@ -37,7 +37,7 @@ function Task(props) {
       className={isSelected ? 'selected' : null}
       onClick={handleClick}>
 
-      <input type='checkbox' checked={props.completed}
+      <input type='checkbox' defaultChecked={props.completed}
              onClick={(event) => {
                event.stopPropagation();
                props.toggleDone(props.id);

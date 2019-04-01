@@ -26,7 +26,6 @@ class Index extends Component {
       <AppWrapper>
 
         <ColumnLeft>
-          <Block><Link to='/home'>Home</Link></Block>
           <Block>{loremIpsum({ count: 5 })}</Block>
           <Block>{loremIpsum({ count: 10 })}</Block>
         </ColumnLeft>
