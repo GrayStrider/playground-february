@@ -140,13 +140,13 @@ const TaskWrapper = styled.div`
     font-weight: bold;
   }
 `;
-
 export {
   AppWrapper,
   Block,
   InputBoxWrapper,
 
   TaskWrapper,
+  DefaultWrapper,
 
   Deleted,
   TaskList,

@@ -7,7 +7,9 @@ function* fetchUsers() {
   try {
     yield put({ type: syncActions.REQUEST_START });
     const users = yield call(API.fetchUsers);
-    yield put({ type: syncActions.FETCH_SUCCESS, payload: { users } });
+    yield put({
+      type: syncActions.FETCH_SUCCESS,
+      payload: { users: users } });
   } catch (err) {
     yield put({ type: syncActions.REQUEST_FAIL, payload: { error: err } });
   }

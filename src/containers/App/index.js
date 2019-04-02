@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import InputBox from '../../components/InputBox';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Task from '../../components/Task';
 import TaskDetails from '../../components/TaskDetails';
@@ -13,6 +12,7 @@ import {
   Deleted,
   TaskList,
 } from '../../styles';
+import Users from '../Users';
 
 const loremIpsum = require('lorem-ipsum');
 
@@ -26,8 +26,7 @@ class App extends Component {
       <AppWrapper>
 
         <ColumnLeft>
-          <Block>{loremIpsum({ count: 5 })}</Block>
-          <Block>{loremIpsum({ count: 10 })}</Block>
+          <Users/>
         </ColumnLeft>
 
         <ColumnCenter>
