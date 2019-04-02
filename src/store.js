@@ -23,7 +23,7 @@ export default function store(preloadedState) {
     ),
   )
 
-  sagaMiddleware.run(rootSaga)
+  // sagaMiddleware.run(rootSaga)
 
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers

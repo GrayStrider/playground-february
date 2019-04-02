@@ -4,7 +4,8 @@ const todoActions = {
   ADD_TODO: 'ADD_TODO',
   DELETE_TODO: 'DELETE_TODO',
   SET_SELECTED: 'SET_SELECTED',
-  FETCH_TODOS: 'FETCH_TODOS',
+  FETCH_DATA: 'FETCH_DATA',
+  FETCH_USERS: 'FETCH_USERS',
 
   toggleDone: id => ({
     type: todoActions.TOGGLEDONE,
@@ -28,7 +29,7 @@ const todoActions = {
   }),
 
   fetchTodos: () => ({
-    type: todoActions.FETCH_TODOS
+    type: todoActions.FETCH_DATA
   }),
 
 }

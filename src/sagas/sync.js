@@ -1,23 +1,24 @@
 import { put, call, takeLatest, fork } from 'redux-saga/effects';
 import syncActions from '../actions/syncActions';
+import appActions from '../actions/appActions';
+import API from '../containers/App/api';
 
-function* fetchTodos() {
+function* fetchUsers() {
   try {
     yield put({ type: syncActions.REQUEST_START });
-    // const todos = yield call(API.fetchTodos);
-    const todos = {1: 'test'}
-    yield put({ type: syncActions.FETCH_TODOS_SUCCESS, payload: { todos } });
+    const users = yield call(API.fetchUsers);
+    yield put({ type: syncActions.FETCH_SUCCESS, payload: { users } });
   } catch (err) {
     yield put({ type: syncActions.REQUEST_FAIL, payload: { error: err } });
   }
 }
 
-function* watchFetchTodos() {
-  yield takeLatest(syncActions.FETCH_TODOS, fetchTodos);
+function* watchFetchUsers() {
+  yield takeLatest(appActions.FETCH_USERS, fetchUsers);
 }
 
 const todoSagas = [
-  fork(watchFetchTodos)
+  fork(watchFetchUsers)
 ]
 
 export default todoSagas;
