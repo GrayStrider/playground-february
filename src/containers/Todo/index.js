@@ -13,6 +13,7 @@ import {
   TaskList,
 } from '../../styles';
 import Users from '../Users';
+import { Link } from 'react-router-dom';
 
 const loremIpsum = require('lorem-ipsum');
 
@@ -26,6 +27,9 @@ class App extends Component {
       <AppWrapper>
 
         <ColumnLeft>
+          <Block>
+            <Link to={'/bootstrap'}>Bootstrap</Link>
+          </Block>
           <Users/>
         </ColumnLeft>
 
