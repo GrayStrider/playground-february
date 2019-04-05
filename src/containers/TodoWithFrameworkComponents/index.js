@@ -2,7 +2,7 @@ import React from 'react';
 const loremIpsum = require('lorem-ipsum');
 
 
-function TodoBootstrap() {
+function TodoWithFrameworkComponents() {
   return (
     0
   );
@@ -10,4 +10,4 @@ function TodoBootstrap() {
 
 
 
-export default TodoBootstrap;
+export default TodoWithFrameworkComponents;

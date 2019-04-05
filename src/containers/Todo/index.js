@@ -28,7 +28,7 @@ class App extends Component {
 
         <ColumnLeft>
           <Block>
-            <Link to={'/bootstrap'}>Bootstrap</Link>
+            <Link to={'/TodoWithFrameworkComponents'}>TodoWithFrameworkComponents</Link>
           </Block>
           <Users/>
         </ColumnLeft>

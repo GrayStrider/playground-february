@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import { Redirect } from 'react-router';
 import { hot } from 'react-hot-loader/root';
 import Todo from './containers/Todo';
-import TodoBootstrap from './containers/TodoBootstrap';
+import TodoWithFrameworkComponents from './containers/TodoWithFrameworkComponents';
 
 class App extends Component {
   render() {
@@ -11,7 +11,9 @@ class App extends Component {
       <div>
         <Switch>
           <Route exact path='/' component={Todo}/>
-          <Route exact path='/bootstrap' component={TodoBootstrap}/>
+          <Route exact path='/TodoWithFrameworkComponents'
+                 component={TodoWithFrameworkComponents}/>
+
           <Redirect from='*' to='/'/>
         </Switch>
       </div>
