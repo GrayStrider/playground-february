@@ -103,10 +103,6 @@ const STaskList = styled(DefaultWrapper)`
   }
 `;
 
-const Deleted = styled(STaskList)`
-  //margin-top: auto;
-`;
-
 const TaskWrapper = styled.div`
   transition: ease-out 0.2s;
   border-bottom: 1px solid #cdcdcd;
@@ -148,7 +144,6 @@ export {
   TaskWrapper,
   DefaultWrapper,
 
-  Deleted,
   STaskList,
   ColumnLeft,
   ColumnCenter,
