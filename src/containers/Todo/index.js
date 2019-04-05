@@ -10,10 +10,11 @@ import {
   ColumnLeft,
   ColumnRight,
   Deleted,
-  TaskList,
+  STaskList,
 } from '../../styles';
 import Users from '../Users';
 import { Link } from 'react-router-dom';
+import TaskList from '../TaskList';
 
 const loremIpsum = require('lorem-ipsum');
 
@@ -25,7 +26,6 @@ class App extends Component {
   render() {
     return (
       <AppWrapper>
-
         <ColumnLeft>
           <Block>
             <Link to={'/TodoWithFrameworkComponents'}>TodoWithFrameworkComponents</Link>
@@ -35,18 +35,7 @@ class App extends Component {
 
         <ColumnCenter>
           <InputBox/>
-          <TaskList>
-            {this.props.tasks
-              .filter(task => !task.isDeleted)
-              .map(task => (
-                  <Task key={task.id}
-                        id={task.id}
-                        content={task.content}
-                        completed={task.completed}
-                  />
-                ),
-              )}
-          </TaskList>
+          <TaskList/>
           <Deleted>
             {this.props.tasks
               .filter(task => task.isDeleted)

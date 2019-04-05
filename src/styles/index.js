@@ -93,7 +93,7 @@ const Block = styled(DefaultWrapper)`
 
 `;
 
-const TaskList = styled(DefaultWrapper)`
+const STaskList = styled(DefaultWrapper)`
   border-radius: 0;
   display: flex;
   flex-direction: column;
@@ -103,7 +103,7 @@ const TaskList = styled(DefaultWrapper)`
   }
 `;
 
-const Deleted = styled(TaskList)`
+const Deleted = styled(STaskList)`
   //margin-top: auto;
 `;
 
@@ -149,7 +149,7 @@ export {
   DefaultWrapper,
 
   Deleted,
-  TaskList,
+  STaskList,
   ColumnLeft,
   ColumnCenter,
   ColumnRight,
