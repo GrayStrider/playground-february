@@ -1,7 +1,7 @@
 import { put, call, takeLatest, fork } from 'redux-saga/effects';
 import syncActions from '../actions/syncActions';
 import appActions from '../actions/appActions';
-import API from '../containers/Todo/api';
+import API from '../containers/App/api';
 
 function* fetchUsers() {
   try {

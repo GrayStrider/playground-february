@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Redirect } from 'react-router';
 import { hot } from 'react-hot-loader/root';
-import Todo from './containers/Todo';
+import Todo from './containers/App';
 import TodoWithFrameworkComponents from './containers/TodoWithFrameworkComponents';
 
 class App extends Component {
