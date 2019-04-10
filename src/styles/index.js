@@ -73,8 +73,6 @@ const AppWrapper = styled.div`
   width: 100%;
   padding: ${spacing};
   
-  overflow: auto;
-  
   @media(max-width: 800px) {
     & ${ColumnLeft} {
       display: none;

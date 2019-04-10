@@ -2,30 +2,60 @@ import React from 'react';
 import styled from 'styled-components';
 import theme from '../../themes/default';
 import { AppBar, Toolbar } from '@material-ui/core';
+import { Scrollbars } from 'react-custom-scrollbars';
 
 const loremIpsum = require('lorem-ipsum');
 
 
-function TodoWithFrameworkComponents() {
-  return (
-    <AppWrapper>
-      <ColumnLeft>
-        {loremIpsum({count: 5})}
-      </ColumnLeft>
-      <ColumnCenter>
-        <AppBar position='sticky'>
-          <Toolbar>
+class TodoWithFrameworkComponents extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      height: window.innerHeight,
+      width: window.innerWidth,
+    };
+    this.updateDimensions = this.updateDimensions.bind(this);
+  }
 
-          </Toolbar>
-        </AppBar>
-        {loremIpsum({count: 50})}
-      </ColumnCenter>
-      <ColumnRight>
-        {loremIpsum({count: 5})}
-      </ColumnRight>
-    </AppWrapper>
+  componentDidMount() {
+    console.log(this.state.height);
+    // Additionally I could have just used an arrow function for the binding `this` to the component...
+    window.addEventListener('resize', this.updateDimensions);
+  }
 
-  );
+  updateDimensions() {
+    this.setState({
+      height: window.innerHeight,
+      width: window.innerWidth,
+    });
+  }
+
+  render() {
+    return (
+      <AppWrapper>
+        <ColumnLeft>
+          {loremIpsum({ count: 5 })}
+        </ColumnLeft>
+        <ColumnCenter>
+          {/*<AppBar position='sticky'>*/}
+            {/*<Toolbar>*/}
+
+            {/*</Toolbar>*/}
+          {/*</AppBar>*/}
+          <Scrollbars autoHeight={true} autoHeightMax={this.state.height}>
+            {loremIpsum({ count: 50 })}
+          </Scrollbars>
+        </ColumnCenter>
+        <ColumnRight>
+          {loremIpsum({ count: 5 })}
+        </ColumnRight>
+      </AppWrapper>
+    );
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateDimensions);
+  }
 }
 
 const Column = styled.div`
@@ -55,7 +85,7 @@ const AppWrapper = styled.div`
   height: 100%;
   width: 100%;
   padding: ${theme.spacing};
-  overflow: auto;
+  overflow: hidden;
   @media(max-width: 800px) {
     & ${ColumnLeft} {
       display: none;
