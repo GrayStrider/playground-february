@@ -1,10 +1,7 @@
-/** @jsx jsx */
 import React from 'react';
-import { jsx, css } from '@emotion/core';
 import styled from 'styled-components';
 import theme from '../../themes/default';
-
-import App from '../App';
+import { AppBar, Toolbar } from '@material-ui/core';
 
 const loremIpsum = require('lorem-ipsum');
 
@@ -16,7 +13,12 @@ function TodoWithFrameworkComponents() {
         {loremIpsum({count: 5})}
       </ColumnLeft>
       <ColumnCenter>
-        {loremIpsum({count: 5})}
+        <AppBar position='sticky'>
+          <Toolbar>
+
+          </Toolbar>
+        </AppBar>
+        {loremIpsum({count: 50})}
       </ColumnCenter>
       <ColumnRight>
         {loremIpsum({count: 5})}
@@ -31,7 +33,6 @@ const Column = styled.div`
   flex-direction: column;
   padding: 0 ${theme.spacing} 0 ${theme.spacing};
   flex: 1;
-  border: 1px solid #000000;
 
 `;
 const ColumnLeft = styled(Column)`
@@ -65,6 +66,9 @@ const AppWrapper = styled.div`
       display: none;
     }
     
+    & ${ColumnCenter}{
+      padding: 0;
+    }
     padding: 0;
   }
 `;
