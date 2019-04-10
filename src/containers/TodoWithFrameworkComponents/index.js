@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import theme from '../../themes/default';
-import { AppBar, Toolbar } from '@material-ui/core';
+import { AppBar, InputBase, Toolbar } from '@material-ui/core';
 import { Scrollbars } from 'react-custom-scrollbars';
 
 const loremIpsum = require('lorem-ipsum');
@@ -39,12 +39,20 @@ class TodoWithFrameworkComponents extends React.Component {
           {loremIpsum({ count: 5 })}
         </ColumnLeft>
         <ColumnCenter>
-          {/*<AppBar position='sticky'>*/}
-            {/*<Toolbar>*/}
+          <S_AppBar position='sticky'>
+            <Toolbar>
+              <S_InputBase placeholder='Add task here' classes={{
+                root: {
+                  color: 'white'
+                },
+                input: {
+                  color: 'white'
+                }
+              }}/>
 
-            {/*</Toolbar>*/}
-          {/*</AppBar>*/}
-          <Scrollbars autoHeight autoHeightMax={this.state.height} autoHide>
+            </Toolbar>
+          </S_AppBar>
+          <Scrollbars autoHeight autoHeightMax={this.state.height - 56} autoHide>
             {lorem10}
           </Scrollbars>
         </ColumnCenter>
@@ -59,6 +67,14 @@ class TodoWithFrameworkComponents extends React.Component {
     window.removeEventListener('resize', this.updateDimensions);
   }
 }
+
+const S_InputBase = styled(InputBase)`
+    color: white;
+`
+
+const S_AppBar = styled(AppBar)`
+    min-height: 56px;
+`
 
 const Column = styled.div`
   display: flex;
