@@ -1,7 +1,18 @@
 import React from 'react';
-import { STaskList } from '../../styles';
+import { DefaultWrapper } from '../../styles';
 import Task from '../../components/Task';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
+
+const STaskList = styled(DefaultWrapper)`
+  display: flex;
+  flex-direction: column;
+  border-radius: 0;
+  
+  &:empty {
+    display: none;
+  }
+`;
 
 const mapStateToProps = state => ({
   tasks: state.tasks,

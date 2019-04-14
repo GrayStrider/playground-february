@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import theme from '../../themes/default';
 import { AppBar, InputBase, Toolbar } from '@material-ui/core';
 import { Scrollbars } from 'react-custom-scrollbars';
+import InputGroup from 'react-bootstrap/InputGroup';
+import { FormControl } from 'react-bootstrap';
 
 const loremIpsum = require('lorem-ipsum');
 const lorem50 = `Velit anim id ut sint incididunt enim. Aliqua reprehenderit excepteur cupidatat aute culpa sint proident reprehenderit sunt adipisicing ex. Sunt labore eiusmod sit magna non fugiat consectetur veniam laborum Lorem do non cillum dolore. Qui nulla labore cillum laboris. Dolor quis eiusmod ex amet. Adipisicing deserunt sint officia irure. Exercitation amet dolor commodo reprehenderit esse duis irure quis Lorem enim reprehenderit mollit dolor duis. Incididunt ea magna eu nisi dolore veniam laboris enim non quis. Reprehenderit reprehenderit reprehenderit exercitation excepteur. Pariatur deserunt est tempor consequat. Consectetur consectetur sint pariatur deserunt voluptate. Aliqua sunt magna ipsum aliqua ex exercitation. Enim aute non dolor eiusmod tempor ut. Qui sunt reprehenderit nostrud veniam minim adipisicing sit aute sit. Ut officia aliqua sit anim eu ea sint tempor Lorem. Occaecat labore laboris exercitation labore enim irure in dolore adipisicing id pariatur. Esse aliquip enim voluptate incididunt magna. Proident anim magna aliquip anim sit labore laboris minim consectetur minim aliqua pariatur ea. Quis anim laborum laborum non aliqua aliquip quis non velit. Reprehenderit proident aute dolore ut consectetur. Id proident non sit sit et et culpa. Aute sunt deserunt voluptate consequat labore dolor cupidatat deserunt deserunt incididunt. Anim labore proident aliqua pariatur. Non duis aliqua proident esse reprehenderit non fugiat magna labore Lorem veniam ut. Commodo magna commodo consectetur pariatur consectetur cupidatat incididunt irure proident mollit aliquip fugiat cupidatat. Consequat quis exercitation tempor nisi irure veniam. Exercitation deserunt aliquip minim consectetur eiusmod dolor sint veniam in reprehenderit. Velit anim duis velit enim duis ipsum tempor deserunt anim minim voluptate. Laboris eu anim nostrud consectetur do dolor ut commodo Lorem aliquip labore. Dolore qui adipisicing ad sunt culpa ad et voluptate qui. Anim non officia eu dolor voluptate quis. Lorem exercitation consequat cupidatat aliqua quis enim. Incididunt nisi labore exercitation excepteur consequat elit nulla adipisicing consectetur ipsum nulla ea. Ut labore dolore voluptate aliquip enim deserunt esse cupidatat sint. Eu ad consectetur mollit voluptate consequat aliquip ullamco ad ad pariatur ipsum voluptate. Minim dolore minim amet in ut aliquip deserunt qui in aute exercitation ullamco. Sunt pariatur veniam exercitation laborum ut minim do exercitation elit eu aliqua exercitation qui. Sunt tempor fugiat proident laboris nisi veniam. Aute officia ut voluptate sint. Aliquip commodo deserunt incididunt anim nulla. Magna eiusmod proident commodo exercitation adipisicing ex. Pariatur nulla id nulla veniam ea ad pariatur deserunt voluptate proident elit voluptate. Id irure sunt reprehenderit quis irure dolore anim excepteur pariatur. Minim veniam tempor Lorem aliqua officia. Ad cupidatat velit commodo enim pariatur et sit eu culpa anim pariatur nisi nostrud. Anim non aute non duis labore enim fugiat incididunt. Exercitation esse dolore pariatur eu ullamco mollit ad veniam ex eiusmod ut. Ut eu adipisicing laborum aute. Culpa est anim dolore eiusmod ipsum do elit aliqua officia nostrud dolor est. Velit fugiat anim eu duis voluptate et tempor adipisicing exercitation aute elit sint minim.\n';`
@@ -41,15 +43,16 @@ class TodoWithFrameworkComponents extends React.Component {
         <ColumnCenter>
           <S_AppBar position='sticky'>
             <Toolbar>
-              <S_InputBase placeholder='Add task here' classes={{
-                root: {
-                  color: 'white'
-                },
-                input: {
-                  color: 'white'
-                }
-              }}/>
-
+              <InputGroup className="mb-3">
+                <InputGroup.Prepend>
+                  <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
+                </InputGroup.Prepend>
+                <FormControl
+                  placeholder="Username"
+                  aria-label="Username"
+                  aria-describedby="basic-addon1"
+                />
+              </InputGroup>
             </Toolbar>
           </S_AppBar>
           <Scrollbars autoHeight autoHeightMax={this.state.height - 56} autoHide>
