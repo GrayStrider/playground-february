@@ -91,49 +91,11 @@ const Block = styled(DefaultWrapper)`
 
 `;
 
-const STaskList = styled(DefaultWrapper)`
-  border-radius: 0;
-  display: flex;
-  flex-direction: column;
-  
-  &:empty {
-    display: none;
-  }
-`;
 
 const TaskWrapper = styled.div`
-  transition: ease-out 0.2s;
-  border-bottom: 1px solid #cdcdcd;
-  
-  &:hover {
-    background: #f2f2f2;
-    cursor: pointer;
-    border-bottom: 1px solid transparent;
-  }
-  
-  & .delete_button {
-    transition: ease-out 0.2s;
-    transform: scale(0.6);
-    filter: contrast(0);
-    float: right;
-    margin-right: 0.5em;
-    &:hover {
-      color: red;
-      transform: scale(0.7);
-      filter: contrast(0.8);
-    }  
-  }
-  
-  & input[type='checkbox'] {
-    cursor: pointer;
-    margin-right: 0.5em;
-  }
-  
-  &.selected {
-    background: #e5e5e5;
-    font-weight: bold;
-  }
+ 
 `;
+
 export {
   AppWrapper,
   Block,
@@ -142,7 +104,6 @@ export {
   TaskWrapper,
   DefaultWrapper,
 
-  STaskList,
   ColumnLeft,
   ColumnCenter,
   ColumnRight,

@@ -4,7 +4,7 @@ import Task from '../../components/Task';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-const STaskList = styled(DefaultWrapper)`
+const Wrapper = styled(DefaultWrapper)`
   display: flex;
   flex-direction: column;
   border-radius: 0;
@@ -18,9 +18,11 @@ const mapStateToProps = state => ({
   tasks: state.tasks,
 });
 
+
+
 function TaskList(props) {
   return (
-    <STaskList>
+    <Wrapper>
       {props.tasks
         .filter(task => !task.isDeleted)
         .map(task => (
@@ -31,7 +33,7 @@ function TaskList(props) {
             />
           ),
         )}
-    </STaskList>
+    </Wrapper>
   )
 }
 

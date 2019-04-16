@@ -30,6 +30,12 @@ class App extends Component {
               TodoWithFrameworkComponents
             </Link>
           </Block>
+          <Block>
+            <Link to={'/kanban'}>
+              Kanban
+            </Link>
+          </Block>
+
           <Users/>
         </ColumnLeft>
 

@@ -41,7 +41,7 @@ class TodoWithFrameworkComponents extends React.Component {
           {loremIpsum({ count: 5 })}
         </ColumnLeft>
         <ColumnCenter>
-          <S_AppBar position='sticky'>
+          <SAppBar position='sticky'>
             <Toolbar>
               <InputGroup className="mb-3">
                 <InputGroup.Prepend>
@@ -54,7 +54,7 @@ class TodoWithFrameworkComponents extends React.Component {
                 />
               </InputGroup>
             </Toolbar>
-          </S_AppBar>
+          </SAppBar>
           <Scrollbars autoHeight autoHeightMax={this.state.height - 56} autoHide>
             {lorem10}
           </Scrollbars>
@@ -75,7 +75,7 @@ const S_InputBase = styled(InputBase)`
     color: white;
 `
 
-const S_AppBar = styled(AppBar)`
+const SAppBar = styled(AppBar)`
     min-height: 56px;
 `
 

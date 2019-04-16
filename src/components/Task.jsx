@@ -37,16 +37,23 @@ function Task(props) {
       className={isSelected ? 'selected' : null}
       onClick={handleClick}>
 
-      <input type='checkbox' defaultChecked={props.completed}
-             onClick={(event) => {
-               event.stopPropagation();
-               props.toggleDone(props.id);
-             }}/>
-
-      {props.content}
-
-      <span className='delete_button' onClick={handleDelete} role='img'
-            aria-label='Delete task'>❌</span>
+      <span style={{
+        display: 'flex'
+      }}>
+        <label>
+          <input type='checkbox' className='filled-in' defaultChecked={props.completed}
+                 onClick={(event) => {
+                   event.stopPropagation();
+                   props.toggleDone(props.id);
+                 }}/>
+          <span style={{
+            display: 'hidden'
+          }}></span>
+        </label>
+        <span className='black-text'>{props.content}</span>
+      </span>
+      {/*<span className='delete_button' onClick={handleDelete} role='img'*/}
+      {/*aria-label='Delete task'>❌</span>*/}
     </TaskWrapper>
   );
 }

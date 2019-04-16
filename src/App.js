@@ -4,6 +4,13 @@ import { Redirect } from 'react-router';
 import { hot } from 'react-hot-loader/root';
 import Todo from './containers/App';
 import TodoWithFrameworkComponents from './containers/TodoWithFrameworkComponents';
+import Kanban from './pages/Kanban/App/App';
+
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faBars, faBell } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faBell, faBars);
+
 
 class App extends Component {
   render() {
@@ -13,6 +20,8 @@ class App extends Component {
           <Route exact path='/' component={Todo}/>
           <Route exact path='/TodoWithFrameworkComponents'
                  component={TodoWithFrameworkComponents}/>
+          <Route exact path='/kanban'
+                 component={Kanban}/>
 
           <Redirect from='*' to='/'/>
         </Switch>
@@ -21,4 +30,4 @@ class App extends Component {
   }
 }
 
-export default hot(App)
+export default hot(App);
