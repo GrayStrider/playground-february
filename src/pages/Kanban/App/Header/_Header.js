@@ -1,25 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
-import Button from './BoardSelector/Button';
-import NotificationsDropdown from './NotificationsDropdown/NotificationsDropdown';
+import BoardsDropdown from './BoardsDropdown';
 
 const Wrapper = styled.div`
   display: flex;
-  
-  
   height: 35px;
   padding: 4px 10px;
-  
-  
-  background-color: blanchedalmond;
+  background-color: #f4f8f9;
   align-items: center;
+  box-shadow: 2px 2px 2px #c2c2c2;
 `;
 
 function Header(props) {
+
   return (
     <Wrapper>
-      <Button/>
-      <NotificationsDropdown/>
+      <BoardsDropdown/>
     </Wrapper>
   );
 }

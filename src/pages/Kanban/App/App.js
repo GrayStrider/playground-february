@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
-import Header from './Header/Header';
+import Header from './Header/_Header';
 import Footer from './Footer/Footer';
 import Board from './Board/Board';
 
@@ -11,6 +11,8 @@ const Wrapper = styled.div`
   left: 0;
   top: 0;
   bottom: 0;
+  
+  background: #505050;
 `
 
 function Kanban(props) {
