@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import todoActions from '../actions/appActions';
-import { TaskWrapper } from '../styles';
+import {TaskWrapper} from '../styles';
 
 const mapDispatchToProps = dispatch => ({
   toggleDone: (id) => dispatch(todoActions.toggleDone(id)),
@@ -35,26 +35,26 @@ function Task(props) {
     <TaskWrapper
       id={props.id}
       className={isSelected ? 'selected' : null}
-      onClick={handleClick}>
+      onClick={handleClick} >
 
       <span style={{
         display: 'flex'
-      }}>
-        <label>
+      }} >
+        <label >
           <input type='checkbox' className='filled-in' defaultChecked={props.completed}
                  onClick={(event) => {
                    event.stopPropagation();
                    props.toggleDone(props.id);
-                 }}/>
+                 }} />
           <span style={{
             display: 'hidden'
-          }}></span>
-        </label>
-        <span className='black-text'>{props.content}</span>
-      </span>
+          }} />
+        </label >
+        <span className='black-text' >{props.content}</span >
+      </span >
       {/*<span className='delete_button' onClick={handleDelete} role='img'*/}
       {/*aria-label='Delete task'>❌</span>*/}
-    </TaskWrapper>
+    </TaskWrapper >
   );
 }
 
